@@ -6,12 +6,12 @@ ms.date: 07/16/2018
 ms.topic: article
 ms.service: industry
 description: 本文介绍了将电子商务基础结构从本地迁移到 Azure 的阶段。
-ms.openlocfilehash: 847950673475f7f59a0c8c8c8bfc821414b2cc77
-ms.sourcegitcommit: 76f2862adbec59311b5888e043a120f89dc862af
+ms.openlocfilehash: a440eabad6a1367ed8219c01424d21d22e441b16
+ms.sourcegitcommit: 20b001b9fb51b944ae82bf55d2d670aa852fa64b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "51654264"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52297950"
 ---
 # <a name="migrating-your-e-commerce-solution-to-azure-overview"></a>将电子商务解决方案迁移到 Azure 的概述
 
@@ -33,7 +33,7 @@ ms.locfileid: "51654264"
 
  ![](./assets/migrating-ecommerce-solution-to-azure/ecommerce-system-sketch.png)
 
-云提供了改变组织获取、使用和管理技术的方式的机会。  其他好处包括：降低了维护数据中心的成本，提升了可靠性和性能，以及灵活地添加其他服务。 在此用例中，我们会看到零售业可用来将其现有基础结构迁移到 Azure 的方法。 我们也会使用重新托管、重构和重新生成的分阶段方法来充分利用新环境。 尽管许多组织可能会使用本系列方法实现现代化，但在大多数情况下，组织可以放入任何阶段作为其起点。  组织可能会选择放弃在 Azure 上重新托管当前应用程序，而是直接重构甚至重新生成。  此决策将特定于应用程序和组织，以便最符合其现代化需求。
+云提供了改变组织获取、使用和管理技术的方式的机会。  其他好处包括：降低了维护数据中心的成本，提升了可靠性和性能，以及灵活地添加其他服务。 在此用例中，我们会看到零售业可用来将其现有基础结构迁移到 Azure 的方法。 我们也会使用重新托管、重构和重新生成的分阶段方法来充分利用新环境。 尽管许多组织可能会使用本系列方法实现现代化，但在大多数情况下，组织可以将任何阶段作为其起点。  组织可能会选择放弃在 Azure 上重新托管当前应用程序，而是直接重构甚至重新生成。  此决策将特定于应用程序和组织，以便最符合其现代化需求。
 
 ## <a name="rehost"></a>重新托管
 
