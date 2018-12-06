@@ -7,12 +7,12 @@ manager: gmarchet
 ms.service: industry
 ms.topic: article
 ms.date: 09/26/2018
-ms.openlocfilehash: 79f6829d80bea2cf05bc11b613476f64dad900ef
-ms.sourcegitcommit: 76f2862adbec59311b5888e043a120f89dc862af
+ms.openlocfilehash: e3a2f19fa584cfefa72a6b8bf3eabfe1c3af3521
+ms.sourcegitcommit: c4eb2665df40d0449bd037e7500222fc38bc53ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "51654404"
+ms.lasthandoff: 12/03/2018
+ms.locfileid: "52820765"
 ---
 # <a name="extracting-actionable-insights-from-iot-data"></a>从 IoT 数据中提取可操作见解
 
@@ -119,8 +119,7 @@ Lambda 体系结构通过创建两个数据流路径来解决此问题。 所有
 -   批处理层将结果馈送到“服务层”，以便对查询做出响应。 批处理层编制批处理视图的索引，以便提高查询效率。 速度层会根据最新数据使用增量更新来更新服务层。
 
 下图显示了表示转换阶段的五个块。 第一个块是数据流，它以并行方式向速度层和批处理层馈送。 这两个层均向所服务的层馈送，速度层和所服务的层均向分析客户端馈送。
-
-![Lambda 体系结构原理图。] (assets/extracting-insights-from-iot/lambda-schematic.png)
+![Lambda 体系结构。](assets/extracting-insights-from-iot/lambda-schematic.png)
 
  Azure 平台提供各种服务，可用于实现体系结构。 下图显示了如何映射这些服务来实现它。 图中显示了转换的五个阶段，每个阶段都包含相关的 Azure 技术。 颜色较深的框表示执行这些任务的多个选项的可用性。
 
