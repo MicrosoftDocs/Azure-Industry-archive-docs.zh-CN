@@ -203,7 +203,7 @@ Azure IoT 解决方案体系结构的详细信息[可联机获取](http://downlo
 
 提供服务的一方必须确保可识别并妥善保护或推移其客户的机密信息。Microsoft Azure 提供了根据所使用的存储服务加密数据的功能。
 
-设备生成和提交数据的方式也需要使用已知方法进行保护，例如每设备证书、每设备启用/禁用、TLS 安全、X.509 支持、IP 白名单/黑名单以及共享访问策略。 提供服务的一方必须确保可识别并妥善保护或推移客户的机密信息。[Azure Data Lake Store](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-encryption?WT.mc_id=pdmsolution-docs-ercenk)、[Azure 存储](https://docs.microsoft.com/en-us/azure/storage/common/storage-service-encryption?WT.mc_id=pdmsolution-docs-ercenk)、[Azure Cosmos DB](https://docs.microsoft.com/en-us/azure/cosmos-db/database-encryption-at-rest?WT.mc_id=pdmsolution-docs-ercenk) 和 [Azure SQL 数据库](https://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql?WT.mc_id=pdmsolution-docs-ercenk)是可用于加密静态数据的服务示例。 解决方案提供商还应考虑如何在同一资源（例如数据库）或多个资源内对数据进行分区。 
+设备生成和提交数据的方式也需要使用已知方法进行保护，例如每设备证书、每设备启用/禁用、TLS 安全、X.509 支持、IP 允许列表/阻止列表以及共享访问策略。 提供服务的一方必须确保可识别并妥善保护或推移客户的机密信息。[Azure Data Lake Store](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-encryption?WT.mc_id=pdmsolution-docs-ercenk)、[Azure 存储](https://docs.microsoft.com/en-us/azure/storage/common/storage-service-encryption?WT.mc_id=pdmsolution-docs-ercenk)、[Azure Cosmos DB](https://docs.microsoft.com/en-us/azure/cosmos-db/database-encryption-at-rest?WT.mc_id=pdmsolution-docs-ercenk) 和 [Azure SQL 数据库](https://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql?WT.mc_id=pdmsolution-docs-ercenk)是可用于加密静态数据的服务示例。 解决方案提供商还应考虑如何在同一资源（例如数据库）或多个资源内对数据进行分区。 
 
 ### <a name="geographical-considerations"></a>地理位置注意事项
 
