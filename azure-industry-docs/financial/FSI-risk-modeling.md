@@ -1,3 +1,11 @@
+---
+ms.openlocfilehash: cff221055e76d7334793782d19eadd0960712a1f
+ms.sourcegitcommit: 461c520509d53bae1021eebf9733a98edbf71e4d
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66716850"
+---
 # <a name="enabling-the-financial-services-risk-lifecycle-with-azure-and-r"></a>通过 Azure 和 R 启用金融服务风险生命周期
 
 
@@ -15,7 +23,7 @@
     这些分析师通常使用所在领域中的热门代码和建模工具：R 和 Python。 许多大学课程体系在数学金融和 MBA 课程中包含 R 或 Python 培训。
     这两种语言都提供了广泛的开源库，支持热门的风险计算。 除了适当的工具之外，分析师通常还需要具有：
 
-    a.在“解决方案资源管理器”中，右键单击项目文件夹下的“引用”文件夹，并单击“添加引用”。  准确的市场定价数据。
+    a.  准确的市场定价数据。
 
     b.  现有保单和索赔数据。
 
@@ -48,7 +56,7 @@ Microsoft 通过 [Azure 市场](https://azuremarketplace.microsoft.com/?WT.mc_id
 
 3.  通过简单的蒙特卡罗 (MC) 方法对股权价格建模，其中用到几何布朗运动 (GBM)：
 
-    a.在“解决方案资源管理器”中，右键单击项目文件夹下的“引用”文件夹，并单击“添加引用”。  估计预期收益 μ (mu) 和波动率 σ (theta)。
+    a.  估计预期收益 μ (mu) 和波动率 σ (theta)。
 
     b.  将模型校准为历史数据。
 
@@ -56,7 +64,7 @@ Microsoft 通过 [Azure 市场](https://azuremarketplace.microsoft.com/?WT.mc_id
 
 5.  绘制最大值（0，股票价值）以证明 PFE 的含义，与风险值 (VaR) 之间的差异
 
-    a.在“解决方案资源管理器”中，右键单击项目文件夹下的“引用”文件夹，并单击“添加引用”。  具体公式：PFE = 股价 (T) -- 远期合同价格 K
+    a.  具体公式：PFE = 股价 (T) -- 远期合同价格 K
 
 6.  取 0.95 分位数来获得模拟期间每个时间步长/时间终点的 PFE 值
 
@@ -161,7 +169,7 @@ estimateGBM_Parameters <- function(logReturns,dt = 1/252) {
 GBM_Parameters <- estimateGBM_Parameters(df_instrument.dailyReturns[1:length(df_instrument.dailyReturns) - 1])
 ````
 
-接下来，我们为基础股票价格建模。 可以从头开始实施离散型 GBM 流程，也可以使用提供此功能的众多 R 包之一。 我们使用 R 包 [sde（随机微分方程的模拟和推断）](https://cran.r-project.org/web/packages/sde/index.html)，它提供了可解决此问题的一种方法。 GBM 方法需要一组参数，这些参数要么根据历史数据进行校准，要么是既定的模拟参数。 我们使用了历史数据，在开始模拟时提供 μ、σ 和股票价格 (P0)。
+接下来，我们为基础股票价格建模。 可以从头开始实施离散型 GBM 流程，也可以使用提供此功能的众多 R 包之一。 我们使用 R 包 [sde  （随机微分方程的模拟和推断）](https://cran.r-project.org/web/packages/sde/index.html)，它提供了可解决此问题的一种方法。 GBM 方法需要一组参数，这些参数要么根据历史数据进行校准，要么是既定的模拟参数。 我们使用了历史数据，在开始模拟时提供 μ、σ 和股票价格 (P0)。
 
 ````R
 if (!require(sde)) install.packages('sde')
@@ -361,7 +369,7 @@ body <- whisker.render(template, data)
 ````
 
 
-接下来，需要调用 Web 服务。 本例中调用 StartCreditExposure 方法来触发计算。 我们将 API 的终结点存储在名为“endpoint”的变量中。
+接下来，需要调用 Web 服务。 本例中调用 StartCreditExposure 方法来触发计算。 我们将 API 的终结点存储在名为“endpoint”  的变量中。
 
 ````R
 # make the call
