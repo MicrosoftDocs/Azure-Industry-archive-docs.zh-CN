@@ -1,10 +1,17 @@
 ---
-ms.openlocfilehash: cff221055e76d7334793782d19eadd0960712a1f
-ms.sourcegitcommit: 461c520509d53bae1021eebf9733a98edbf71e4d
+title: 手机银行欺诈解决方案指南
+description: 说明如何在 2 秒内检测到欺诈性事务
+author: mauiguitar
+ms.author: sihiga
+ms.service: industry
+ms.topic: overview
+ms.date: 10/31/2019
+ms.openlocfilehash: c5ea4384d02548e4d681b1c13fd81066a955d6a2
+ms.sourcegitcommit: f42a60539bec2a7769b42b6574f09eed4d1b6c79
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66716850"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73750527"
 ---
 # <a name="enabling-the-financial-services-risk-lifecycle-with-azure-and-r"></a>通过 Azure 和 R 启用金融服务风险生命周期
 
@@ -19,7 +26,7 @@ ms.locfileid: "66716850"
 
 通过这些流程，风险建模的共同需求包括：
 
-1.  风险分析师、保险公司的精算师或资本市场公司的金融工程师需要进行临时风险相关试验。
+1. 风险分析师、保险公司的精算师或资本市场公司的金融工程师需要进行临时风险相关试验。
     这些分析师通常使用所在领域中的热门代码和建模工具：R 和 Python。 许多大学课程体系在数学金融和 MBA 课程中包含 R 或 Python 培训。
     这两种语言都提供了广泛的开源库，支持热门的风险计算。 除了适当的工具之外，分析师通常还需要具有：
 
@@ -33,40 +40,40 @@ ms.locfileid: "66716850"
 
     e.  计算能力，用于实现快速交互式数据调查。
 
-2.  他们还可以利用临时机器学习算法来确定定价或市场策略。
+2. 他们还可以利用临时机器学习算法来确定定价或市场策略。
 
-3.  需要可视化和呈现数据以用于产品规划、交易策略和类似讨论。
+3. 需要可视化和呈现数据以用于产品规划、交易策略和类似讨论。
 
-4.  快速执行由分析师配置的定义模型，用于定价、估值和市场风险。 估值结合使用专用风险建模、市场风险工具和自定义代码。 批量执行分析，每晚、每周、每月、每季度和每年的计算变化都会产生工作负荷峰值。
+4. 快速执行由分析师配置的定义模型，用于定价、估值和市场风险。 估值结合使用专用风险建模、市场风险工具和自定义代码。 批量执行分析，每晚、每周、每月、每季度和每年的计算变化都会产生工作负荷峰值。
 
-5.  将数据与其他企业范围的风险度量指标整合为综合风险报告。 在较大的组织中，较低级别的风险评估可能会转移到企业风险建模和报告工具中。
+5. 将数据与其他企业范围的风险度量指标整合为综合风险报告。 在较大的组织中，较低级别的风险评估可能会转移到企业风险建模和报告工具中。
 
-6.  必须在规定的时间间隔内按定义的格式报告结果，以满足投资者和监管要求。
+6. 必须在规定的时间间隔内按定义的格式报告结果，以满足投资者和监管要求。
 
 Microsoft 通过 [Azure 市场](https://azuremarketplace.microsoft.com/?WT.mc_id=fsiriskmodelr-docs-scseely)中的 Azure 服务和合作伙伴产品/服务的组合为上述各项考虑因素提供支持。 在本文中，我们将实际举例说明如何使用 R 执行临时试验。我们首先解释如何在单个计算机上运行试验，然后展示如何在 [Azure Batch](https://docs.microsoft.com/azure/batch/?WT.mc_id=fsiriskmodelr-docs-scseely) 上运行相同的试验，最后，演示如何在我们的建模中利用外部服务。 有关在 Azure 上执行已定义模型的选项和注意事项，在以下关于[银行业](https://docs.microsoft.com/azure/industry/financial/risk-grid-banking-solution-guide?WT.mc_id=fsiriskmodelr-docs-scseely)和[保险业](https://docs.microsoft.com/azure/industry/financial/actuarial-risk-analysis-and-financial-modeling-solution-guide?WT.mc_id=fsiriskmodelr-docs-scseely)的文章中进行了说明。
 
-## <a name="analyst-modelling-in-r"></a>分析师通过 R 建模 
+## <a name="analyst-modelling-in-r"></a>分析师通过 R 建模
 
 我们首先看一下分析师在具有代表性的简化资本市场情形中如何使用 R。 可以通过引用现有的 R 库进行计算的方式，或通过从头开始编写代码的方式来进行构建。 在我们的示例中，还必须获取外部定价数据。 为使示例简明扼要，我们计算了股权远期合同的潜在风险暴露 (PFE)。
 此示例避免了复杂衍生工具等复杂的定量建模技术，侧重于单一风险因素，专注于风险生命周期。 示例将执行以下操作：
 
-1.  选择感兴趣的工具。
+1. 选择感兴趣的工具。
 
-2.  该工具的源历史价格。
+2. 该工具的源历史价格。
 
-3.  通过简单的蒙特卡罗 (MC) 方法对股权价格建模，其中用到几何布朗运动 (GBM)：
+3. 通过简单的蒙特卡罗 (MC) 方法对股权价格建模，其中用到几何布朗运动 (GBM)：
 
     a.  估计预期收益 μ (mu) 和波动率 σ (theta)。
 
     b.  将模型校准为历史数据。
 
-4.  使各种路径可视化以传达结果。
+4. 使各种路径可视化以传达结果。
 
-5.  绘制最大值（0，股票价值）以证明 PFE 的含义，与风险值 (VaR) 之间的差异
+5. 绘制最大值（0，股票价值）以证明 PFE 的含义，与风险值 (VaR) 之间的差异
 
     a.  具体公式：PFE = 股价 (T) -- 远期合同价格 K
 
-6.  取 0.95 分位数来获得模拟期间每个时间步长/时间终点的 PFE 值
+6. 取 0.95 分位数来获得模拟期间每个时间步长/时间终点的 PFE 值
 
 我们将根据 MSFT 股票来计算股权远期的潜在风险暴露。 如上所述，要为股票价格建模，需要 MSFT 股票的历史价格，以便将模型校准为历史数据。 有很多方法可以获得历史股票价格。 示例使用了来自外部服务提供商 [Quandl](https://www.quandl.com/) 的免费版股票价格服务。
 
@@ -75,15 +82,15 @@ Microsoft 通过 [Azure 市场](https://azuremarketplace.microsoft.com/?WT.mc_id
 
 要处理数据并定义与股权相关的风险，需要完成以下事项：
 
-1.  从股权中检索历史数据。
+1. 从股权中检索历史数据。
 
-2.  根据历史数据确定预期收益 μ 和波动率 σ。
+2. 根据历史数据确定预期收益 μ 和波动率 σ。
 
-3.  使用一些模拟数据对基础股票价格进行建模。
+3. 使用一些模拟数据对基础股票价格进行建模。
 
-4.  运行模型
+4. 运行模型
 
-5.  确定股权的潜在风险暴露。
+5. 确定股权的潜在风险暴露。
 
 首先，通过 Quandl 服务检索股票，并绘制过去 180 天的收盘价历史记录。
 
@@ -254,7 +261,7 @@ plot(df_pfe, t = 'l', ylab = "Potential Future Exposure in USD", xlab = "time t 
 
 ## <a name="using-azure-batch-with-r"></a>将 Azure Batch 与 R 结合使用 
 
-上述 R 解决方案可以与 Azure Batch 结合，并利用云进行风险计算。 对于像我们这样的并行计算而言，几乎不需要额外的工作量。 [使用 Azure Batch 运行并行 R 模拟](https://docs.microsoft.com/en-us/azure/batch/tutorial-r-doazureparallel?WT.mc_id=fsiriskmodelr-docs-scseely)教程详细介绍了如何将 R 连接到 Azure Batch。 下面介绍连接到 Azure Batch 的过程的代码和摘要，以及如何在简化的 PFE 计算中利用云的扩展。
+上述 R 解决方案可以与 Azure Batch 结合，并利用云进行风险计算。 对于像我们这样的并行计算而言，几乎不需要额外的工作量。 [使用 Azure Batch 运行并行 R 模拟](https://docs.microsoft.com/azure/batch/tutorial-r-doazureparallel?WT.mc_id=fsiriskmodelr-docs-scseely)教程详细介绍了如何将 R 连接到 Azure Batch。 下面介绍连接到 Azure Batch 的过程的代码和摘要，以及如何在简化的 PFE 计算中利用云的扩展。
 
 此示例处理前面描述的相同模型。 正如我们之前看到的，这种计算可以在个人计算机上运行。 增加蒙特卡罗路径的数量或使用更小的时间步长将导致更长的执行时间。 几乎所有的 R 代码都将保持不变。 我们将在本节中突出显示差异。
 
@@ -330,23 +337,23 @@ stopCluster(cluster)
 前两个示例显示了如何利用本地和云基础结构来开发适当的估值模型。 这种范式已经开始转变。 与本地基础结构转变为基于云的 IaaS 和 PaaS 服务的方式相同，相关风险数据的建模正在转变为面向服务的流程。
 如今的分析师面临两大挑战：
 
-1.  监管机构要求使用不断提高的计算能力来增加建模要求。 监管机构更频繁地要求提供最新的风险数据。
+1. 监管机构要求使用不断提高的计算能力来增加建模要求。 监管机构更频繁地要求提供最新的风险数据。
 
 2.  现有的风险基础结构随着时间的推移有机地增长，并且在以敏捷方式实现新要求和更高级的风险建模时带来了挑战。
 
 基于云的服务可以提供所需的功能并支持风险分析。 这种方法具有一些优点：
 
--   监管机构要求的最常见风险计算必须由受法规约束的每个人去实现。 通过利用专业服务提供商的服务，分析师可以从符合监管机构要求的即用型风险计算中受益。 此类服务可能包括市场风险计算、交易对手风险计算、X 值调整 (XVA)，甚至交易账户根本审查 (FRTB) 计算。
+-  监管机构要求的最常见风险计算必须由受法规约束的每个人去实现。 通过利用专业服务提供商的服务，分析师可以从符合监管机构要求的即用型风险计算中受益。 此类服务可能包括市场风险计算、交易对手风险计算、X 值调整 (XVA)，甚至交易账户根本审查 (FRTB) 计算。
 
--   这些服务通过 Web 服务公开其接口。 这些其他服务可以增强现有的风险基础结构。
+- 这些服务通过 Web 服务公开其接口。 这些其他服务可以增强现有的风险基础结构。
 
 在示例中，我们想要为 FRTB 计算调用基于云的服务。 其中一些可以在 [AppSource](https://appsource.microsoft.com/?WT.mc_id=fsiriskmodelr-docs-scseely) 上找到。 在本文中，我们选择了 [Vector Risk](http://www.vectorrisk.com/) 的试用选项。 我们将继续修改系统。 这次使用服务来计算感兴趣的风险数据。 此过程包括以下步骤：
 
-1.  使用正确的参数调用相关的风险服务。
+1. 使用正确的参数调用相关的风险服务。
 
-2.  等待服务完成计算。
+2. 等待服务完成计算。
 
-3.  检索结果并将结果合并到风险分析中。
+3. 检索结果并将结果合并到风险分析中。
 
 转换为 R 代码，我们的 R 代码能够通过从准备好的输入模板定义所需的输入值得以增强。
 
@@ -428,13 +435,12 @@ plot(as.numeric(df$term[df$statistic == 'PFE']) / 365, df$result[df$statistic ==
 
 ### <a name="tutorials"></a>教程
 
+- R 开发人员：[使用 Azure Batch 运行并行 R 模拟](https://docs.microsoft.com/azure/batch/tutorial-r-doazureparallel?WT.mc_id=fsiriskmodelr-docs-scseely)
 
--   R 开发人员：[使用 Azure Batch 运行并行 R 模拟](https://docs.microsoft.com/azure/batch/tutorial-r-doazureparallel?WT.mc_id=fsiriskmodelr-docs-scseely)
+- [基本 R 命令和 RevoScaleR 函数：25 个常见示例](https://docs.microsoft.com/machine-learning-server/r/tutorial-r-to-revoscaler?WT.mc_id=fsiriskmodelr-docs-scseely)
 
--   [基本 R 命令和 RevoScaleR 函数：25 个常见示例](https://docs.microsoft.com/machine-learning-server/r/tutorial-r-to-revoscaler?WT.mc_id=fsiriskmodelr-docs-scseely)
+- [使用 RevoScaleR 可视化和分析数据](https://docs.microsoft.com/machine-learning-server/r/tutorial-revoscaler-data-model-analysis?WT.mc_id=fsiriskmodelr-docs-scseely)
 
--   [使用 RevoScaleR 可视化和分析数据](https://docs.microsoft.com/machine-learning-server/r/tutorial-revoscaler-data-model-analysis?WT.mc_id=fsiriskmodelr-docs-scseely)
-
--   [HDInsight 上的 ML Services 和开放源代码 R 功能简介](https://docs.microsoft.com/azure/hdinsight/r-server/r-server-overview?WT.mc_id=fsiriskmodelr-docs-scseely)
+- [HDInsight 上的 ML 服务和开放源代码 R 功能简介](https://docs.microsoft.com/azure/hdinsight/r-server/r-server-overview?WT.mc_id=fsiriskmodelr-docs-scseely)
 
 _本文由 Darko Mocelj 博士和 Rupert Nicolay 共同撰写。_

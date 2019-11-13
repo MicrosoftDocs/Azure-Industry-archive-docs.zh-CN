@@ -2,16 +2,16 @@
 title: 概述：用于银行的数据管理
 author: dstarr
 ms.author: dastarr
-ms.date: 05/21/2018
+ms.date: 10/30/2019
 ms.topic: article
 ms.service: industry
 description: 介绍了在受管制的银行环境中使用 Microsoft Azure 管理数据的技术。
-ms.openlocfilehash: 69b0abfc4908431397e47752bcbe56a440703406
-ms.sourcegitcommit: 76f2862adbec59311b5888e043a120f89dc862af
+ms.openlocfilehash: 1314054018c04e45b6450604febbf0142ead380d
+ms.sourcegitcommit: f42a60539bec2a7769b42b6574f09eed4d1b6c79
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "51654244"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73750534"
 ---
 # <a name="data-management-in-banking-overview"></a>概述：用于银行的数据管理
 
@@ -49,7 +49,7 @@ ms.locfileid: "51654244"
 
 ## <a name="data-ingest"></a>数据引入
 
-金融机构将有已收集且正被当前应用程序使用的数据。 将此数据迁移到 Azure 中的方法有多种。 在许多情况下，现有应用程序可以连接到 Azure 中的数据，就像是连接本地数据一样，而且只需对现有应用程序进行极少更改。 在使用 Microsoft [Azure SQL 数据库](/azure/sql-database/?WT.mc_id=bankdm-docs-dastarr)时，尤其如此。不过，也可以通过 [Azure 市场](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/databases?WT.mc_id=bankdm-docs-dastarr)找到适用于 Oracle、TeraData MongoDB 和其他程序的解决方案。
+金融机构将有已收集且正被当前应用程序使用的数据。 将此数据迁移到 Azure 中的方法有多种。 在许多情况下，现有应用程序可以连接到 Azure 中的数据，就像是连接本地数据一样，而且只需对现有应用程序进行极少更改。 在使用 Microsoft [Azure SQL 数据库](/azure/sql-database/?WT.mc_id=bankdm-docs-dastarr)时，尤其如此。不过，也可以通过 [Azure 市场](https://azuremarketplace.microsoft.com/marketplace/apps/category/databases?WT.mc_id=bankdm-docs-dastarr)找到适用于 Oracle、TeraData MongoDB 和其他程序的解决方案。
 
 可采用不同的数据迁移策略将数据从本地迁移到 Azure 中，这些策略的延迟程度也各异。 下面引用的所有技术都提供数据透明度和可靠的安全性。
 
@@ -78,11 +78,11 @@ VNet 是在 Azure 中定义，以便在有界 VNet 内包含 Azure 资源。 然
 
 ### <a name="azure-database-migration-service"></a>Azure 数据库迁移服务
 
-直接迁移 SQL Server 数据库时，可使用 [Microsoft Azure 数据库迁移服务](/azure/dms/dms-overview?WT.mc_id=bankdm-docs-dastarr)将数据库迁移到 Azure 中。 此服务使用[数据迁移助手](https://docs.microsoft.com/en-us/sql/dma/dma-overview?WT.mc_id=bankdm-docs-dastarr)，以确保本地数据库与 Azure SQL 中的功能兼容。 迁移数据库前是否必须进行任何更改取决于你的选择。 此外，在本地网络和 Azure 之间还必须有站点到站点 Internet 连接，才能使用此服务。
+直接迁移 SQL Server 数据库时，可使用 [Microsoft Azure 数据库迁移服务](/azure/dms/dms-overview?WT.mc_id=bankdm-docs-dastarr)将数据库迁移到 Azure 中。 此服务使用[数据迁移助手](https://docs.microsoft.com/sql/dma/dma-overview?WT.mc_id=bankdm-docs-dastarr)，以确保本地数据库与 Azure SQL 中的功能兼容。 迁移数据库前是否必须进行任何更改取决于你的选择。 此外，在本地网络和 Azure 之间还必须有站点到站点 Internet 连接，才能使用此服务。
 
 ### <a name="bulk-copy-program-for-sql-server"></a>适用于 SQL Server 的大容量复制程序
 
-如果 SQL Server 目前位于本地，且目标是要迁移到 SQL Azure 中，可采用另一项很棒的技术，即使用 SQL Server Management Studio [和 BCP 实用工具将数据迁移到](https://azure.microsoft.com/en-us/blog/bcp-and-sql-azure/?WT.mc_id=bankdm-docs-dastarr) SQL Azure 中。 在原始本地服务器中创建 Azure SQL 数据库并编写数据库脚本后，便可使用 BCP 将数据快速传输到 SQL Azure。
+如果 SQL Server 目前位于本地，且目标是要迁移到 SQL Azure 中，可采用另一项很棒的技术，即使用 SQL Server Management Studio [和 BCP 实用工具将数据迁移到](https://azure.microsoft.com/blog/bcp-and-sql-azure/?WT.mc_id=bankdm-docs-dastarr) SQL Azure 中。 在原始本地服务器中创建 Azure SQL 数据库并编写数据库脚本后，便可使用 BCP 将数据快速传输到 SQL Azure。
 
 ### <a name="blob-and-file-storage"></a>Blob 存储和文件存储
 
@@ -116,7 +116,7 @@ Azure 提供了有助于降低这些问题影响的服务。 将此类数据迁�
 
 通常来说，银行要迁移到 Azure 的信息达到 TB（甚至是 PB）级别。 幸运的是，Azure 中的数据存储非常有弹性且高度可缩放。
 
-侧重于将海量数据迁移到 Azure 的服务是 [Azure Data Box](https://azure.microsoft.com/en-us/services/storage/databox/?WT.mc_id=bankdm-docs-dastarr)。 此服务旨在迁移数据，无需通过 Azure 连接传输数据或备份。 Azure Data Box 适用于迁移 TB 级别的数据，可以从 Azure 门户订购此设备。 交付到你的位置上后，它就可以在其中连接到网络，并通过标准 NAS 协议加载数据，以及通过 standard256-AES 加密提供保护。 当此设备上加载有数据后，数据就会发送回 Azure 数据中心，并在 Azure 中水化。
+侧重于将海量数据迁移到 Azure 的服务是 [Azure Data Box](https://azure.microsoft.com/services/storage/databox/?WT.mc_id=bankdm-docs-dastarr)。 此服务旨在迁移数据，无需通过 Azure 连接传输数据或备份。 Azure Data Box 适用于迁移 TB 级别的数据，可以从 Azure 门户订购此设备。 交付到你的位置上后，它就可以在其中连接到网络，并通过标准 NAS 协议加载数据，以及通过 standard256-AES 加密提供保护。 当此设备上加载有数据后，数据就会发送回 Azure 数据中心，并在 Azure 中水化。
 然后，此设备就会被安全清除。
 
 ## <a name="azure-information-protection"></a>Azure 信息保护
@@ -125,7 +125,7 @@ Azure 信息保护 (AIP) 是基于云的解决方案，有助于组织分类、�
 
 ## <a name="data-services"></a>数据服务
 
-银行执行主数据管理很费劲，因为元数据相互冲突，这是由于迥然不同的核心银行系统，以及数据来自源系统、载入系统、产品/服务管理系统、CRM 系统等所致。 Azure 提供了有助于降低这些问题和其他常见数据问题影响的工具。
+银行执行主数据管理很费劲，因为元数据相互冲突，这是由于迥然不同的核心银行系统，以及数据来自源系统、载入系统、产品/服务管理系统、CRM 系统等所致。 Azure 提供了工具来帮助降低这些问题和其他常见数据问题的影响。
 
 金融服务组织需要对数据执行的操作有许多。 将数据写入 Azure 数据存储后，可能需要转换此类数据，或将它与能扩充要引入数据的其他数据联接。
 
@@ -185,7 +185,7 @@ Databricks 是在需要转换或分析数据时使用的逻辑处理管道。 �
 
 习惯使用新数据模型后，立即确定数据引入策略。 数据源有哪些？ 数据将存储在 Azure 中的什么位置？ 如何以及何时将数据迁移到 Azure 中？ 可帮助你根据内容类型、大小等进行迁移的资源有很多。 Azure 数据迁移服务就是这样一个例子。
 
-将数据托管在 Azure 中后，立即为已失去效用或生命周期结束的数据创建数据清除计划。 虽然长期（冷）存储始终都是理想的存档方法，但清理过期数据可减少内存占用情况和整体存储成本。 [Azure 解决方案体系结构](https://azure.microsoft.com/en-us/solutions/architecture/?solution=backup-archive?WT.mc_id=bankdm-docs-dastarr)备份和存档是有助于计划总策略的实用资源。
+将数据托管在 Azure 中后，立即为已失去效用或生命周期结束的数据创建数据清除计划。 虽然长期（冷）存储始终都是理想的存档方法，但清理过期数据可减少内存占用情况和整体存储成本。 [Azure 解决方案体系结构](https://azure.microsoft.com/solutions/architecture/?solution=backup-archive?WT.mc_id=bankdm-docs-dastarr)备份和存档是有助于计划总策略的实用资源。
 
 ## <a name="relevant-technologies"></a>相关技术
 
@@ -207,6 +207,6 @@ Azure 有助于通过多个技术和策略来满足数据引入、处理、存�
 
 通过使用 Databricks 和数据工厂等 Azure 服务，可以很轻松地对数据执行操作。 存档存储适用于长期存储极少获访问的数据，可以根据需要按滚动周期删除它。
 
-若要开始设计数据管理计划，请访问Azure 解决方案库的[备份和存档存储](https://azure.microsoft.com/en-us/solutions/architecture/?solution=backup-archive?WT.mc_id=bankdm-docs-dastarr)。
+若要开始设计数据管理计划，请访问Azure 解决方案库的[备份和存档存储](https://azure.microsoft.com/solutions/architecture/?solution=backup-archive?WT.mc_id=bankdm-docs-dastarr)。
 
 **本文作者**：Howard Bush 和 David Starr
