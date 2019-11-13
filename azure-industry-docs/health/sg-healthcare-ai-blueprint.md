@@ -1,17 +1,17 @@
 ---
 title: 实现 Azure AI 蓝图
-author: dastarr
+author: dstarr
 ms.author: dastarr
-ms.date: 08/24/2018
+ms.date: 11/07/2019
 ms.topic: article
 ms.service: industry
 description: 本文提供了 Microsoft Azure AI 蓝图的相关指南。
-ms.openlocfilehash: f7c9290e6bbc0d500a9f7774c2020f78b5e94aca
-ms.sourcegitcommit: 76f2862adbec59311b5888e043a120f89dc862af
+ms.openlocfilehash: 845ec2a1da335336375d90c789e0fa89bc70d23a
+ms.sourcegitcommit: 385e99900bc20950f02a63c885facc1cf62c49df
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "51654344"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73845623"
 ---
 # <a name="implementing-the-azure-blueprint-for-ai"></a>实现 Azure AI 蓝图
 
@@ -61,7 +61,7 @@ IaaS 模型不属于本文范围，本文重点介绍此蓝图的 PaaS 部署。
 
 主要资源有：
 
-1. 部署、配置和其他任务的 [PowerShell](https://docs.microsoft.com/en-us/powershell/scripting/powershell-scripting?WT.mc_id=ms-docs-dastarr) 脚本。
+1. 部署、配置和其他任务的 [PowerShell](https://docs.microsoft.com/powershell/scripting/powershell-scripting?WT.mc_id=ms-docs-dastarr) 脚本。
 2. [安装详细说明](https://github.com/Azure/Health-Data-and-AI-Blueprint/blob/master/deployment.md)，其中包括如何使用安装脚本。
 3. [常见问题解答综合](https://github.com/Azure/Health-Data-and-AI-Blueprint/blob/master/faq.md)。
 
@@ -81,7 +81,7 @@ IaaS 模型不属于本文范围，本文重点介绍此蓝图的 PaaS 部署。
 
 此蓝图将为技术人员提供优质的指南和说明，还会提供项目来帮助创建功能完备的安装。 另外的这类项目包括：
 
-1. [威胁模型](https://servicetrust.microsoft.com/ViewPage/HIPAABlueprint?command=Download&downloadType=Document&downloadId=01828de2-9555-4bac-a2a0-44e9ed2eeeaf&docTab=d7c399a0-2b92-11e8-9910-13dc07d708f7_Data_Analytics&WT.mc_id=ms-docs-dastarr)（与 [Microsoft 威胁建模工具](https://www.microsoft.com/en-us/download/details.aspx?id=49168&WT.mc_id=ms-docs-dastarr)结合使用）。 此威胁模型说明了解决方案的组件、组件之间的数据流以及信任边界。 若要扩展基本蓝图，可使用此工具进行威胁建模，或者可使用此工具来从安全性角度了解系统体系结构。
+1. [威胁模型](https://servicetrust.microsoft.com/ViewPage/HIPAABlueprint?command=Download&downloadType=Document&downloadId=01828de2-9555-4bac-a2a0-44e9ed2eeeaf&docTab=d7c399a0-2b92-11e8-9910-13dc07d708f7_Data_Analytics&WT.mc_id=ms-docs-dastarr)（与 [Microsoft 威胁建模工具](https://www.microsoft.com/download/details.aspx?id=49168&WT.mc_id=ms-docs-dastarr)结合使用）。 此威胁模型说明了解决方案的组件、组件之间的数据流以及信任边界。 若要扩展基本蓝图，可使用此工具进行威胁建模，或者可使用此工具来从安全性角度了解系统体系结构。
 
 2. [HITRUST 客户责任矩阵](https://servicetrust.microsoft.com/ViewPage/HIPAABlueprint?command=Download&downloadType=Document&downloadId=eab85244-b9ab-490a-9e2a-611153f7d3af&docTab=d7c399a0-2b92-11e8-9910-13dc07d708f7_Data_Analytics&WT.mc_id=ms-docs-dastarr)（使用 Excel 工作簿格式）。  它说明了客户和 Microsoft 要针对矩阵中的每个要求提供的内容。 有关此责任矩阵的详细信息，请参阅本文档中的“安全性和合规性”>“蓝图责任矩阵”部分。
 
@@ -123,7 +123,7 @@ IaaS 模型不属于本文范围，本文重点介绍此蓝图的 PaaS 部署。
 
 1. 不进行任何更改，重新运行安装脚本。 安装程序查看已分配的资源，并仅安装所需的资源。 此技术可以起作用，但存在安装脚本会试图分配已就绪资源的风险。 这可导致错误，安装会失败。
 
-2. 仍运行 deploy.ps1 脚本，但传递其他参数来卸载蓝图服务。 
+2. 仍运行 deploy.ps1 脚本，但传递其他参数来卸载蓝图服务。
 
 ```powershell
 .\deploy.ps1 -clearDeploymentPrefix <prefix> `
@@ -146,7 +146,7 @@ IaaS 模型不属于本文范围，本文重点介绍此蓝图的 PaaS 部署。
 
 ### <a name="reinstall-after-an-uninstall"></a>卸载后重新安装
 
-如需在卸载蓝图后再重新安装它，必须在下一个部署中更改前缀，因为如若不更改前缀已卸载的 Key Vault 会引发错误。 有关此内容的详细信息，请参阅本文的“技术问题”>“Key Vault”部分。
+如需在卸载蓝图后再重新安装它，必须在下一个部署中更改前缀，因为如若不更改前缀已卸载的 Key Vault 会引发错误。 有关此内容的详细信息，请参阅本文的“技术问题”>“Key Vault”部分。 
 
 ### <a name="required-administrator-roles"></a>所需的管理员角色
 
@@ -154,7 +154,7 @@ IaaS 模型不属于本文范围，本文重点介绍此蓝图的 PaaS 部署。
 
 ![蓝图安装程序](assets/sg-healthcare-ai-blueprint-assets/blueprint-installer.png)
 
-此外，由于与 AAD 的集成紧密，因此安装不适用于使用 MSDN 订阅进行。 必须使用标准 Azure 帐户。 如有必要，则[获取免费试用版](https://azure.microsoft.com/en-us/free/?WT.mc_id=ms-docs-dastarr)，以使用它提供的额度安装蓝图解决方案并运行其演示。
+此外，由于与 AAD 的集成紧密，因此安装不适用于使用 MSDN 订阅进行。 必须使用标准 Azure 帐户。 如有必要，则[获取免费试用版](https://azure.microsoft.com/free/?WT.mc_id=ms-docs-dastarr)，以使用它提供的额度安装蓝图解决方案并运行其演示。
 
 ## <a name="adding-other-resources"></a>添加其他资源
 
@@ -162,7 +162,7 @@ Azure 蓝图安装仅包含实现 AI/ML 用例所需的服务。 但可将其他
 
 需要其他 Azure 功能时，可以将新资源（如 [Cosmos DB](/azure/cosmos-db/introduction?WT.mc_id=ms-docs-dastarr)）或新的 [Azure Functions](/azure/azure-functions/functions-overview?WT.mc_id=ms-docs-dastarr) 添加到解决方案。 添加新资源或服务时，务必将它们配置为符合安全和隐私策略，以便符合法规和政策的要求。
 
-可使用 [Azure REST API](https://docs.microsoft.com/en-us/rest/api/?view=Azure&WT.mc_id=ms-docs-dastarr)、[Azure PowerShell 脚本](https://docs.microsoft.com/en-us/powershell/azure/get-started-azureps?view=azurermps-6.6.0&WT.mc_id=ms-docs-dastarr)或 [Azure 门户](http://portal.azure.com/?WT.mc_id=ms-docs-dastarr)创建新资源和服务。
+可使用 [Azure REST API](https://docs.microsoft.com/rest/api/?view=Azure&WT.mc_id=ms-docs-dastarr)、[Azure PowerShell 脚本](https://docs.microsoft.com/powershell/azure/get-started-azureps?view=azurermps-6.6.0&WT.mc_id=ms-docs-dastarr)或 [Azure 门户](http://portal.azure.com/?WT.mc_id=ms-docs-dastarr)创建新资源和服务。
 
 ## <a name="using-machine-learning-with-the-blueprint"></a>将机器学习和蓝图结合使用
 
@@ -222,7 +222,7 @@ Azure Key Vault 服务是一种容器和保管库，用于存储应用程序使�
 
 可以将保管库中存储的密钥加密或签名，并可通过监视密钥使用情况来查找任何安全问题。
 
-若删除了某个 Key Vault，则不会立即从 Azure 清除它。 有关此内容的含义的详细信息，请参阅本文的“技术问题”>“Key Vault”部分。
+若删除了某个 Key Vault，则不会立即从 Azure 清除它。 有关此内容的含义的详细信息，请参阅本文的“技术问题”>“Key Vault”部分。 
 
 ### <a name="application-insights"></a>Application Insights
 
@@ -318,12 +318,11 @@ HITRUST 客户责任矩阵是一个 Excel 文档，用于支持客户实现和�
 
 - 请详细了解 [Azure 健康数据和 AI 蓝图](/azure/security/blueprints/azure-health?WT.mc_id=ms-docs-dastarr)。
 - 在下方下载、克隆或创建分支：[GitHub 存储库](https://github.com/Azure/Health-Data-and-AI-Blueprint/blob/master/deployment.md)。
-- [机器学习工作室](/azure/machine-learning/studio/?WT.mc_id=ms-docs-dastarr)是科学家用于创建机器学习实验的工作区个工具数据。 它允许使用内置算法、特殊用途的小组件以及 Python 和 R 脚本。
+- [机器学习工作室](/azure/machine-learning/?WT.mc_id=ms-docs-dastarr)是科学家用于创建机器学习实验的工作区个工具数据。 它允许使用内置算法、特殊用途的小组件以及 Python 和 R 脚本。
 - 机密、证书及其他专用数据保管在 [Azure Key Vault](/azure/key-vault/key-vault-whatis?WT.mc_id=ms-docs-dastarr) 中。
 - 安装说明提供了所需的命令，但脚本语言 PowerShell 可帮助安装此蓝图。
-- [Azure AI 库](https://docs.microsoft.com/en-us/powershell/scripting/powershell-scripting?WT.mc_id=ms-docs-dastarr) 根据客户的行业提供有用的 AI/ML 解决方案方案盒。 数据科学家及其他医疗保健方面的专家发布了多个解决方案。
+- [Azure AI 库](https://gallery.azure.ai/) 根据客户的行业提供有用的 AI/ML 解决方案方案盒。 数据科学家及其他医疗保健方面的专家发布了多个解决方案。
 - 借助 [Azure 安全中心](/azure/security-center/?WT.mc_id=ms-docs-dastarr)，可了解应用程序的行为、漏洞及缓解方法。
-- [Microsoft 威胁建模工具](/azure/security/blueprints/azure-health?WT.mc_id=ms-docs-dastarr)用于进行规划，并预测对系统环境的威胁。 需要使用它查看蓝图所包含的威胁模型。
 
 ## <a name="wrapping-up"></a>总结
 
