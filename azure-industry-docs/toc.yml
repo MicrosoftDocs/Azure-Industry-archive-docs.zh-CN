@@ -21,7 +21,7 @@
         - name: 体系结构
           items:
             - name: Azure 数据架构指南
-              href: /azure/architecture/data-guide
+              href: /azure/architecture
         - name: 培训
           items:
             - name: Azure 解决方案架构师培训
@@ -107,17 +107,8 @@
             - name: Azure 安全与合规 - HIPAA/HITRUST 卫生保健数据和 AI
               href: /azure/security/blueprints/azure-health
               maintainContext: true
-            - name: Azure 安全与合规 - UK NHS 的数据分析
-              href: /azure/security/blueprints/uknhs-analytics-overview
-              maintainContext: true
-            - name: Azure 安全与合规 - UK NHS 的数据仓库
-              href: /azure/security/blueprints/uknhs-datawarehouse-overview
-              maintainContext: true
-            - name: Azure 安全与合规 - UK NHS 的 IaaS Web 应用程序
-              href: /azure/security/blueprints/uknhs-iaaswa-overview
-              maintainContext: true
-            - name: Azure 安全与合规 - UK NHS 的 PaaS Web 应用程序
-              href: /azure/security/blueprints/uknhs-paaswa-overview
+            - name: 英国官方和英国 NHS 蓝图示例的概述
+              href: /azure/governance/blueprints/samples/ukofficial/index
               maintainContext: true
         - name: 其他资源
           items:
@@ -161,36 +152,28 @@
         - name: 体系结构
           items:
             - name: Azure 数据架构指南
-              href: /azure/architecture/data-guide
+              href: /azure/architecture
         - name: 培训
           items:
-            - name: Azure 解决方案架构师培训
-              href: 'https://www.pluralsight.com/role-iq/microsoft-azure-solution-architect'
-            - name: 使用 Azure 逻辑应用按计划检查流量
-              href: /azure/logic-apps/tutorial-build-schedule-recurring-logic-app-workflow.md
-            - name: 对逻辑应用执行数据操作的代码示例
-              href: /azure/logic-apps/logic-apps-data-operations-code-samples.md
-            - name: 在容器中运行 Azure Functions
-              href: /azure/azure-functions/functions-create-function-linux-custom-image
-            - name: 在 Azure Functions 上使用各种绑定
+            - name: 使用 Azure 逻辑应用创建自动化的基于计划的重复工作流
+              href: /azure/logic-apps/tutorial-build-schedule-recurring-logic-app-workflow
+            - name: 使用 Azure 逻辑应用、Azure Functions 和 Azure 存储来自动执行处理电子邮件的任务
+              href: /azure/logic-apps/tutorial-process-email-attachments-workflow
+            - name: Azure Functions 触发器和绑定概念
               href: /azure/azure-functions/functions-triggers-bindings
             - name: 直观显示事件中心数据流的数据异常
               href: /azure/event-hubs/event-hubs-tutorial-visualize-anomalies
             - name: 创建流分析作业来分析电话呼叫数据
               href: /azure/stream-analytics/stream-analytics-manage-job
-            - name: 使用 Spark 活动转换云中数据
-              href: /azure/event-hubs/event-hubs-tutorial-visualize-anomalies
-            - name: 在时序见解上分析模拟设备数据
+            - name: 创建 Azure 时序见解环境
               href: /azure/time-series-insights/tutorial-create-populate-tsi-environment
             - name: 学习 Power BI
-              href: /power-bi/guided-learning
-            - name: 创建时序见解 SPA
               href: /power-bi/guided-learning
             - name: 探索时序见解 JavaScript 客户端库
               href: /azure/time-series-insights/tutorial-create-tsi-sample-spa
             - name: TSI 演示
               href: 'https://insights.timeseries.azure.com/demo'
-            - name: Power BI 演示
+            - name: Microsoft Power BI Embedded Playground
               href: 'https://microsoft.github.io/PowerBI-JavaScript/demo/v2-demo/index.html'
         - name: 其他资源
           items:
@@ -200,8 +183,6 @@
               href: /azure/app-service
             - name: Azure Blob 存储
               href: /azure/storage/blobs/storage-blobs-introduction
-            - name: Azure Blob 存储层
-              href: /azure/storage/blobs/storage-blob-storage-tiers
             - name: Azure Blob 存储层
               href: /azure/storage/blobs/storage-blob-storage-tiers
             - name: Azure 容器实例
@@ -260,8 +241,8 @@
               href: /azure/time-series-insights
             - name: Azure 时序见解 (TSI) JavaScript 客户端库
               href: /azure/time-series-insights/tutorial-explore-js-client-lib
-            - name: BizTalk 服务
-              href: /services/biztalk-services
+            - name: 从 BizTalk 服务迁移到 Azure 逻辑应用
+              href: /azure/logic-apps/logic-apps-move-from-mabs
             - name: 使用 IoT Edge 设备作为网关
               href: /azure/iot-edge/iot-edge-as-gateway
             - name: Microsoft Power BI
@@ -276,8 +257,6 @@
               href: 'https://github.com/Microsoft/PowerBI-JavaScript'
             - name: Power BI REST API
               href: /rest/api/power-bi
-            - name: REST 查询 API
-              href: /rest/api/time-series-insights/time-series-insights-reference-queryapi
             - name: 表服务数据模型
               href: /rest/api/storageservices/Understanding-the-Table-Service-Data-Model
             - name: 转换 XML
@@ -285,62 +264,60 @@
     - name: 零售
       href: retail/index.md
       items:
-        - name: 体系结构
-          items:
-            - name: Azure 数据架构指南
-              href: /azure/architecture/data-guide/
-        - name: 培训
-          items:
-            - name: Azure 解决方案架构师培训
-              href: /training/learning-paths/azure-solution-architect/
-        - name: 体验 Neal Analytics SKU Max 解决方案
-          href: 'https://appsource.microsoft.com/en-us/product/web-apps/neal_analytics.8066ad01-1e61-40cd-bd33-9b86c65fa73a'
-        - name: 其他资源
-          items:
-            - name: 通过 Neal Analytics 加速 SKU 优化
-              href: 'https://nealanalytics.com/solutions/sku-max/'
-            - name: Azure Active Directory
-              href: /azure/active-directory/
-            - name: 通过 Neal Analytics 加速 SKU 优化
-              href: /services/analysis-services
-            - name: Azure Blob 存储
-              href: /services/storage/blobs
-            - name: Azure Databricks
-              href: /services/databricks
-            - name: Azure 数据工厂
-              href: /services/data-factory
-            - name: 通过 Neal Analytics 加速 SKU 优化
-              href: /azure/machine-learning/service/overview-what-is-azure-ml
-            - name: Azure SQL 数据仓库
-              href: /services/sql-data-warehouse
-            - name: HDInsight
-              href: /services/hdinsight
-            - name: Power BI
-              href: 'https://powerbi.microsoft.com/en-us/'
-              maintainContext: true
-        - name: 用于零售业的数据管理概述
-          href: retail/retail-data-management-overview.md
-        - name: 概述：将电子商务解决方案迁移到 Azure
-          href: retail/migrating-ecommerce-solution-to-azure.md
-        - name: 优化和重用现有建议系统
-          href: retail/recommendation-engine-optimization.md
-        - name: 符合 PCI DSS 的付款处理
-          href: /azure/security/blueprints/payment-processing-blueprint
-          maintainContext: true
-        - name: 概述：视觉搜索
-          href: retail/visual-search-use-case-overview.md
         - name: 消费者品牌的 SKU 优化
           items:
             - name: 概述
               href: retail/sku-optimization-overview.md
             - name: 解决方案指南
               href: retail/sku-optimization-solution-guide.md
+        - name: 用于零售业的数据管理概述
+          href: retail/retail-data-management-overview.md
+        - name: 概述：将电子商务解决方案迁移到 Azure
+          href: retail/migrating-ecommerce-solution-to-azure.md
+        - name: 优化和重用现有推荐系统
+          href: retail/recommendation-engine-optimization.md
+        - name: 视觉搜索概述
+          href: retail/visual-search-use-case-overview.md
+        - name: Azure AI 库（零售）
+          href: 'https://gallery.azure.ai/industries/retail'
+        - name: 零售客户流失预测
+          href: 'https://gallery.azure.ai/Tutorial/Retail-Customer-Churn-Prediction-1'
+        - name: 符合 PCI DSS 的付款处理
+          href: /azure/governance/blueprints/samples/pci-dss-3.2.1/
+          maintainContext: true
+        - name: 用于零售和营销的 Azure Cosmos DB
+          href: '/azure/cosmos-db/use-cases#retail-and-marketing'
+          maintainContext: true
+        - name: 需求预测和价格优化
+          href: 'https://gallery.azure.ai/Solution/Demand-Forecasting-and-Price-Optimization'
+          maintainContext: true
+        - name: 使用 Azure AI 的库存优化解决方案
+          href: 'https://blogs.technet.microsoft.com/machinelearning/2018/04/05/inventory-optimization-solution-in-the-azure-ai-gallery'
+          maintainContext: true
+        - name: 体系结构
+          items:
+            - name: Azure 数据架构指南
+              href: /azure/architecture
+        - name: 培训
+          items:
+            - name: Azure 解决方案架构师培训
+              href: /learn/certifications/azure-solutions-architect
         - name: 其他资源
           items:
-            - name: 用于零售和营销的 Azure Cosmos DB
-              href: '/azure/cosmos-db/use-cases#retail-and-marketing'
+            - name: Azure Active Directory
+              href: /azure/active-directory/
+            - name: Azure Blob 存储
+              href: /azure/storage/blobs/storage-blobs-introduction
+            - name: Azure Databricks
+              href: /azure/azure-databricks
+            - name: Azure 数据工厂
+              href: /azure/data-factory
+            - name: Azure Machine Learning Workbench
+              href: /azure/machine-learning/service/overview-what-happened-to-workbench
+            - name: Azure Synapse Analytics（以前称为 Azure SQL 数据仓库）
+              href: /azure/sql-data-warehouse
+            - name: HDInsight
+              href: /azure/hdinsight
+            - name: Power BI
+              href: 'https://powerbi.microsoft.com/'
               maintainContext: true
-            - name: 需求预测和价格优化
-              href: 'https://gallery.azure.ai/Solution/Demand-Forecasting-and-Price-Optimization'
-            - name: 使用 Azure AI 的库存优化解决方案
-              href: 'https://blogs.technet.microsoft.com/machinelearning/2018/04/05/inventory-optimization-solution-in-the-azure-ai-gallery'
