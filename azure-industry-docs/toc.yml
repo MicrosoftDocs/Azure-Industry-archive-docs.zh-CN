@@ -135,14 +135,6 @@
               href: manufacturing/predictive-maintenance-overview.md
             - name: 解决方案指南
               href: manufacturing/predictive-maintenance-solution.md
-            - name: 其他资源
-              items:
-                - name: Azure 机器学习文档
-                  href: /azure/machine-learning
-                - name: Microsoft IoT 解决方案体系结构
-                  href: /azure/iot-suite/iot-suite-what-is-azure-iot
-                - name: 软件质量的核心
-                  href: /azure/architecture/guide/pillars
         - name: 从 IoT 数据中提取见解
           items:
             - name: 概述
@@ -153,6 +145,12 @@
           items:
             - name: Azure 数据架构指南
               href: /azure/architecture
+            - name: 云设计模式
+              href: /azure/architecture/patterns
+            - name: Azure 上的高性能计算 (HPC)
+              href: /azure/architecture/topics/high-performance-computing
+            - name: 包含 Azure Databricks 的流处理管道
+              href: /azure/architecture/reference-architectures/data/stream-processing-databricks
         - name: 培训
           items:
             - name: 使用 Azure 逻辑应用创建自动化的基于计划的重复工作流
@@ -177,6 +175,12 @@
               href: 'https://microsoft.github.io/PowerBI-JavaScript/demo/v2-demo/index.html'
         - name: 其他资源
           items:
+            - name: Azure 机器学习文档
+              href: /azure/machine-learning
+            - name: Microsoft IoT 解决方案体系结构
+              href: /azure/iot-suite/iot-suite-what-is-azure-iot
+            - name: 软件质量的核心
+              href: /azure/architecture/guide/pillars
             - name: Apache Kafka on HDInsight
               href: /azure/hdinsight/kafka/apache-kafka-introduction
             - name: 应用服务
