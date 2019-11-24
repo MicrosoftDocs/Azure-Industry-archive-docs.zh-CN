@@ -1,17 +1,17 @@
 ---
-title: 零售业
+title: 适用于行业的 Azure - 零售
 author: dstarr
 ms.author: dastarr
-ms.date: 04/25/2018
+ms.date: 11/20/2019
 ms.topic: article
 ms.service: industry
 description: Azure Industry Experiences 中的零售用例
-ms.openlocfilehash: cf979e073b5c9acfab582c18eaa15ceaf92152c6
-ms.sourcegitcommit: 76f2862adbec59311b5888e043a120f89dc862af
+ms.openlocfilehash: f78ca39077fb8f754d52349f3e5b7cefb8ffde84
+ms.sourcegitcommit: b8f9ccc4e4453d6912b05cdd6cf04276e13d7244
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "51654744"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74263503"
 ---
 # <a name="retail-industry"></a>零售业
 

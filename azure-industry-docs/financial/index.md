@@ -1,17 +1,17 @@
 ---
-title: 金融服务业
+title: 金融服务、行业经验
 author: dstarr
 ms.author: dastarr
-ms.date: 04/25/2018
+ms.date: 11/20/2019
 ms.topic: article
 ms.service: industry
 description: Azure Industry Experiences 中的金融服务用例
-ms.openlocfilehash: 29a54682fe6e22280d647fe0d9de88183aecea08
-ms.sourcegitcommit: 76f2862adbec59311b5888e043a120f89dc862af
+ms.openlocfilehash: 2dd818dfe65c91e95efa90619a7a05d7a5b5ca17
+ms.sourcegitcommit: f030566b177715794d2ad857b150317e72d04d64
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "51654694"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74234615"
 ---
 # <a name="financial-services-industry"></a>金融服务业
 

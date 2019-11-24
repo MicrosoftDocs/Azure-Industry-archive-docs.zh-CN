@@ -1,17 +1,17 @@
 ---
-title: 制造
+title: 适用于行业的 Azure - 制造
 author: dstarr
 ms.author: dastarr
-ms.date: 04/25/2018
+ms.date: 11/20/2019
 ms.topic: article
 ms.service: industry
 description: Azure Industry Experiences 中的制造用例
-ms.openlocfilehash: b10b3abdffd65bb3879c0549d560d29cfd8ef576
-ms.sourcegitcommit: 76f2862adbec59311b5888e043a120f89dc862af
+ms.openlocfilehash: 01a57c639f14cc3b0c7f3a57317764a4b93c194f
+ms.sourcegitcommit: b8f9ccc4e4453d6912b05cdd6cf04276e13d7244
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "51654754"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74263465"
 ---
 # <a name="manufacturing-industry"></a>制造业
 
