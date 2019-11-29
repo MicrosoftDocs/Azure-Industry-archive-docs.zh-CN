@@ -1,17 +1,17 @@
 ---
-title: 概述：SKU 优化
+title: SKU 优化摘要
 author: sidneyh
 ms.author: sidneyh
-ms.date: 10/16/2018
+ms.date: 11/20/2019
 ms.topic: article
 ms.service: industry
 description: 概述了 SKU 优化解决方案指南
-ms.openlocfilehash: fd770ffd0b01c513f82c1b5c84a94f38380b2736
-ms.sourcegitcommit: 76f2862adbec59311b5888e043a120f89dc862af
+ms.openlocfilehash: 68ade19b44cc7ec422a778f1d1c111f546db824a
+ms.sourcegitcommit: b8f9ccc4e4453d6912b05cdd6cf04276e13d7244
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "51654124"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74263453"
 ---
 # <a name="sku-optimization-solution-guide"></a>SKU 优化解决方案指南
 

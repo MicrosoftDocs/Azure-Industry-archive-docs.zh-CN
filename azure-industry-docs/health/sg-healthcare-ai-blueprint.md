@@ -1,17 +1,17 @@
 ---
-title: 实现 Azure AI 蓝图
+title: 使用 Azure 服务实现医疗保健 AI 蓝图
 author: dstarr
 ms.author: dastarr
-ms.date: 11/07/2019
+ms.date: 11/20/2019
 ms.topic: article
 ms.service: industry
 description: 本文提供了 Microsoft Azure AI 蓝图的相关指南。
-ms.openlocfilehash: 845ec2a1da335336375d90c789e0fa89bc70d23a
-ms.sourcegitcommit: 385e99900bc20950f02a63c885facc1cf62c49df
+ms.openlocfilehash: 40919ffde2c2cac11339b40348cba7a5e0e0e16d
+ms.sourcegitcommit: 2714a77488c413f01beb169a18acab45663bcfd7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73845623"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74308506"
 ---
 # <a name="implementing-the-azure-blueprint-for-ai"></a>实现 Azure AI 蓝图
 
@@ -162,7 +162,7 @@ Azure 蓝图安装仅包含实现 AI/ML 用例所需的服务。 但可将其他
 
 需要其他 Azure 功能时，可以将新资源（如 [Cosmos DB](/azure/cosmos-db/introduction?WT.mc_id=ms-docs-dastarr)）或新的 [Azure Functions](/azure/azure-functions/functions-overview?WT.mc_id=ms-docs-dastarr) 添加到解决方案。 添加新资源或服务时，务必将它们配置为符合安全和隐私策略，以便符合法规和政策的要求。
 
-可使用 [Azure REST API](https://docs.microsoft.com/rest/api/?view=Azure&WT.mc_id=ms-docs-dastarr)、[Azure PowerShell 脚本](https://docs.microsoft.com/powershell/azure/get-started-azureps?view=azurermps-6.6.0&WT.mc_id=ms-docs-dastarr)或 [Azure 门户](http://portal.azure.com/?WT.mc_id=ms-docs-dastarr)创建新资源和服务。
+可使用 [Azure REST API](https://docs.microsoft.com/rest/api/?view=Azure&WT.mc_id=ms-docs-dastarr)、[Azure PowerShell 脚本](https://docs.microsoft.com/powershell/azure/get-started-azureps?view=azurermps-6.6.0&WT.mc_id=ms-docs-dastarr)或 [Azure 门户](https://portal.azure.com/?WT.mc_id=ms-docs-dastarr)创建新资源和服务。
 
 ## <a name="using-machine-learning-with-the-blueprint"></a>将机器学习和蓝图结合使用
 

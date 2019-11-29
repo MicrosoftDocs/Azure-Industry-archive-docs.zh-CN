@@ -1,17 +1,17 @@
 ---
 title: 将电子商务解决方案迁移到 Azure 的概述
 author: scseely
-ms.author: scseely, mazoroto
-ms.date: 07/16/2018
+ms.author: scseely
+ms.date: 11/20/2019
 ms.topic: article
 ms.service: industry
 description: 本文介绍了将电子商务基础结构从本地迁移到 Azure 的阶段。
-ms.openlocfilehash: a440eabad6a1367ed8219c01424d21d22e441b16
-ms.sourcegitcommit: 20b001b9fb51b944ae82bf55d2d670aa852fa64b
+ms.openlocfilehash: e918f1157dc2bc42a6c4d0decfef95a8daa7ccf0
+ms.sourcegitcommit: b8f9ccc4e4453d6912b05cdd6cf04276e13d7244
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52297950"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74263349"
 ---
 # <a name="migrating-your-e-commerce-solution-to-azure-overview"></a>将电子商务解决方案迁移到 Azure 的概述
 
@@ -41,9 +41,9 @@ ms.locfileid: "52297950"
 
 若要在 Azure 中重新托管，有以下三个阶段：
 
-- 分析：标识和清点应用程序、工作负载、网络和安全性等本地资源。 在此阶段结束时，你已完成现有系统的记录。
-- 迁移：将每个子系统从本地移动到 Azure。 在此阶段中，你会将 Azure 用作数据中心的扩展，并继续与应用程序进行通信。
-- 优化：当系统移动到 Azure 中时，请确保大小合适。 如果环境显示向某些虚拟机分配了过多的资源，请将 VM 类型更改为具有更合适的 CPU、内存和本地存储组合的类型。
+- **分析**：识别并清点应用程序、工作负荷、网络和安全性等本地资源。 在此阶段结束时，你已完成现有系统的记录。
+- **迁移**：将每个子系统从本地移动到 Azure。 在此阶段中，你会将 Azure 用作数据中心的扩展，并继续与应用程序进行通信。
+- **优化**：当系统移动到 Azure 中时，请确保大小合适。 如果环境显示向某些虚拟机分配了过多的资源，请将 VM 类型更改为具有更合适的 CPU、内存和本地存储组合的类型。
 
 ### <a name="analyze"></a>分析
 
@@ -100,7 +100,7 @@ Azure 也提供了用来优化环境的工具。 [Azure 顾问](/azure/advisor/a
 
 ## <a name="rebuild"></a>重新生成
 
-到目前为止，我们已尝试最大限度地减少对电子商务系统的更改 — 我们仅保留工作系统。 接下来讨论如何真正充分利用云。 此阶段是指通过积极采用 PaaS 甚至 SaaS 服务和体系结构来修改现有应用程序。 该过程包括添加新功能或为云重构应用程序的重大修改。  托管 API 是充分利用云系统的新概念。 我们可以通过创建用于在服务之间通信的 API 来使系统更易于更新。  第二个好处是能够深入了解我们拥有的数据。 为此，需移动到微服务和 API 体系结构并使用机器学习和其他工具来分析数据。
+到目前为止，我们已尝试最大限度地减少对电子商务系统的更改 — 我们仅保留工作系统。 接下来讨论如何真正充分利用云。 此阶段是指通过积极采用 PaaS 甚至 SaaS 服务和体系结构来修改现有应用程序。 该过程包括添加新功能或为云重构应用程序的重大修改。  托管 API  是充分利用云系统的新概念。 我们可以通过创建用于在服务之间通信的 API 来使系统更易于更新。  第二个好处是能够深入了解我们拥有的数据。 为此，需移动到微服务和 API  体系结构并使用机器学习和其他工具来分析数据。
 
 ### <a name="microservices--apis"></a>微服务 + API
 
@@ -120,7 +120,7 @@ Azure 也提供了用来优化环境的工具。 [Azure 顾问](/azure/advisor/a
 
 许多开发团队试图同时执行重新托管和重构操作来解决技术债务并更好地利用容量。 在跳转到后续步骤之前进行重新托管有好处。  部署到新环境的任何问题都会更易于诊断和修复。 这反过来会为开发和支持团队提供时间来熟悉作为新环境的 Azure。 开始重构和重新生成系统时，你是在稳定且正常运行的应用程序上进行构建。 这样可以进行更小且有针对性的更改并进行更频繁的更新。
 
-我们已发布有关迁移到云的更常规白皮书：[云迁移概要](https://azure.microsoft.com/resources/cloud-migration-essentials-e-book/?_lrsc=9618a836-9f81-4087-901f-51058783c3a8&WT.mc_id=retailecomm-docs-scseely)。 这在规划迁移时非常适合通读。
+我们已发布有关迁移到云的更简要白皮书：[云迁移概要](https://azure.microsoft.com/resources/cloud-migration-essentials-e-book/?_lrsc=9618a836-9f81-4087-901f-51058783c3a8&WT.mc_id=retailecomm-docs-scseely)。 这在规划迁移时非常适合通读。
 
 ## <a name="technologies-presented"></a>所提供的技术
 

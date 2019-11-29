@@ -1,17 +1,17 @@
 ---
-title: 风险网格计算解决方案指南
+title: 概述 - 网格计算风险分析 - Azure Batch、Azure Data Lake
 author: dstarr
 ms.author: dastarr
-ms.date: 5/2/2018
+ms.date: 11/20/2019
 ms.topic: article
 ms.service: industry
 description: 介绍了为银行业务风险网格计算实施 Azure Batch 的技术方面。
-ms.openlocfilehash: d3470a2e546e73f4c0f1478413ca4b1af7433a66
-ms.sourcegitcommit: 76f2862adbec59311b5888e043a120f89dc862af
+ms.openlocfilehash: 542fb820870048ac2ec2cb67c2bbf13988588ea1
+ms.sourcegitcommit: f030566b177715794d2ad857b150317e72d04d64
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "51654294"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74234665"
 ---
 # <a name="risk-grid-computing-in-banking-solution-guide"></a>银行业务风险网格计算解决方案指南
 
@@ -37,7 +37,7 @@ Azure Batch 是一项免费服务，可为通常用于风险网格计算模型�
 
 ![Azure Batch 网格计算](./assets/risk-grid-compute-assets/05-batch-grid-computing.png)
 
-**图 1：** Azure Batch 网格计算
+**图1：** Azure Batch 网格计算
 
 批处理运行由多个逻辑元素组成。 图 2 显示了批处理作业的逻辑模型。 池是批处理运行中涉及的 VM 的容器，并预配计算节点 VM。 池也是计算节点上安装的应用程序的容器。 作业将在池内创建并运行。 任务将由作业执行。 任务是运行辅助角色应用程序，并通过命令行指令调用。
 
@@ -112,7 +112,7 @@ Azure Batch 内置了一个计划程序，因此可以在门户中或通过 API 
 1. 分配更多计算节点计算机进行横向扩展。
 2. 分配更多功能强大的计算节点计算机进行纵向扩展。 Azure 计算机可能会预配为满足内核和内存，甚至 GPU 计算能力的高性能需求。
 
-> 注意：Microsoft HPC Pack 与 Batch 配合使用是更为复杂的模型，本文未作讨论。
+> 注意：将 Microsoft HPC Pack 与 Batch 配合使用是更复杂的模型，未在本文中讨论。
 
 在批处理群集中，可能只有两个处理 VM 或数千个同时任务正在具有数以万计的内核的数千个 VM 计算节点上运行。 每个 VM 负责一次运行一个任务。 池中的 VM 数可能会按负荷增加或减少时配置的比例手动或自动缩放。
 
@@ -206,13 +206,13 @@ Azure 提供了两种模型，用于安全可靠地将当前本地系统连接�
 
 ExpressRoute 可通过连接合作伙伴（如当前 Internet 服务提供商 (ISP?WT.mc_id=gridbanksg-docs-dastarr)）提供的专用连接将本地或数据中心网络绑定到 Azure。 这使两个网络能够将双方视为相同的网络实例，从而在网络之间提供无缝访问。 在你想要将现有本地系统与 Azure 网络集成，并且 ExpressRoute 提供尽可能最快的连接速度时，网络集成十分重要。
 
-[可在此处找到](https://azure.microsoft.com/en-us/pricing/details/expressroute/?WT.mc_id=gridbanksg-docs-dastarr) Azure ExpressRoute 的其他定价信息。
+[可在此处找到](https://azure.microsoft.com/pricing/details/expressroute/?WT.mc_id=gridbanksg-docs-dastarr) Azure ExpressRoute 的其他定价信息。
 
 ### <a name="vpn-gateway"></a>VPN 网关
 
 VPN 网关是将网络连接到 Azure 的另一种方法。 此模型的缺点是通过 Internet 传送流量。 因此连接可能会缺少弹性，并且网络速度无法达到 ExpressRoute 的速度，但这可能不是风险网格计算方案的障碍，因为读取数据文件通常是一个快速操作。
 
-[可在此处找到](https://azure.microsoft.com/en-us/pricing/details/expressroute/?WT.mc_id=gridbanksg-docs-dastarr) VPN 网关的其他定价信息。
+[可在此处找到](https://azure.microsoft.com/pricing/details/expressroute/?WT.mc_id=gridbanksg-docs-dastarr) VPN 网关的其他定价信息。
 
 ### <a name="choices-for-connectivity-details"></a>连接详细信息的选项
 
@@ -243,16 +243,16 @@ Azure 合作伙伴网络提供商提供的 ExpressRoute 连接实现了与站点
 
 ![站点到站点和 ExpressRoute](./assets/risk-grid-compute-assets/09-batch-upload-process.png)
 
-**图 6：** 批处理上载到执行的生命周期
+**图 6：** 批处理上传到执行生命周期
 
 ### <a name="hybrid-network-connectivity-resources"></a>混合网络连接资源
 
-可能有多个配置适用于你的情况。 若要帮助制定有关将网络连接到 Azure 的决策和体系结构指南，请参阅模式与实践组提供的_[将本地网络连接到 Azure](/azure/architecture/reference-architectures/hybrid-networking/?WT.mc_id=gridbanksg-docs-dastarr)_ 一文。
+可能有多个配置适用于你的情况。 若要帮助制定有关将网络连接到 Azure 的决策和体系结构指南，请参阅模式与实践组提供的 _[将本地网络连接到 Azure](/azure/architecture/reference-architectures/hybrid-networking/?WT.mc_id=gridbanksg-docs-dastarr)_ 一文。
 
 - 有关 VPN 网关配置替代方法，[请参阅本文](/azure/vpn-gateway/vpn-gateway-about-vpngateways?WT.mc_id=gridbanksg-docs-dastarr)。
 - 了解 [ExpressRoute 连接模型](/azure/expressroute/expressroute-connectivity-models?WT.mc_id=gridbanksg-docs-dastarr)。
-- 计算 [ExpressRoute 定价](https://azure.microsoft.com/en-us/pricing/details/expressroute/?WT.mc_id=gridbanksg-docs-dastarr)。
-- 计算 [VPN 网关定价](https://azure.microsoft.com/en-us/pricing/details/vpn-gateway/?WT.mc_id=gridbanksg-docs-dastarr)。
+- 计算 [ExpressRoute 定价](https://azure.microsoft.com/pricing/details/expressroute/?WT.mc_id=gridbanksg-docs-dastarr)。
+- 计算 [VPN 网关定价](https://azure.microsoft.com/pricing/details/vpn-gateway/?WT.mc_id=gridbanksg-docs-dastarr)。
 
 ## <a name="security-considerations"></a>安全注意事项
 

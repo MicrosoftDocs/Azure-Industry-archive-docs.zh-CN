@@ -1,17 +1,17 @@
 ---
-title: 用于零售业的数据管理概述
+title: 零售业中的大数据管理入门指南
 author: dstarr
 ms.author: dastarr
-ms.date: 06/22/2018
+ms.date: 11/20/2019
 ms.topic: article
 ms.service: industry
 description: 零售商拥有大量未使用数据的数据存储，他们可从中获得有价值的见解。 本文讨论 Microsoft Azure 如何帮助有效地使用此类数据。
-ms.openlocfilehash: 8a1a839a509155e67cf8da08d89ea9f7c758bc3b
-ms.sourcegitcommit: 76f2862adbec59311b5888e043a120f89dc862af
+ms.openlocfilehash: 198e0f609889eee86e005c5ee56090006ae2a413
+ms.sourcegitcommit: b8f9ccc4e4453d6912b05cdd6cf04276e13d7244
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "51654184"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74263507"
 ---
 # <a name="data-management-in-retail-overview"></a>用于零售业的数据管理概述
 
@@ -31,11 +31,11 @@ ms.locfileid: "51654184"
 
 将数据导入 Azure 时，请考虑数据源的 3P 及其对零售商希望启用的方案的适用性。 数据源的 3P 即购买、公用和专用。
 
-> 购买的数据通常会增加和增强组织的现有数据，往往是补充组织数据捕获范围的市场和人口统计数据。 例如，零售商可以购买额外的人口统计数据以增加主客户记录，从而确保记录完整准确。 
+>  购买的数据通常会增加和增强组织的现有数据，往往是补充组织数据捕获范围的市场和人口统计数据。 例如，零售商可以购买额外的人口统计数据以增加主客户记录，从而确保记录完整准确。 
 >
-> 公用数据是免费提供的，可以从社交媒体、政府资源（例如地域）和其他联机资源中获取。 该数据可以推断诸如与购买模式相关的天气模式或在特定地域中表示产品流行度的社交活动等见解。 公共数据通常通过 API 提供。
+>  公用数据是免费提供的，可以从社交媒体、政府资源（例如地域）和其他联机资源中获取。 该数据可以推断诸如与购买模式相关的天气模式或在特定地域中表示产品流行度的社交活动等见解。 公共数据通常通过 API 提供。
 >
-> 专用数据是保留在组织内的数据。 它可能是零售商的本地系统、SaaS 应用程序或云提供商。 要访问 SaaS 应用程序提供程序中的数据以及其他供应商数据，API 通常用于与供应商的系统进行通信。 这包括电子商务站点日志、POS 销售数据和库存管理系统等数据。
+>  专用数据是保留在组织内的数据。 它可能是零售商的本地系统、SaaS 应用程序或云提供商。 要访问 SaaS 应用程序提供程序中的数据以及其他供应商数据，API 通常用于与供应商的系统进行通信。 这包括电子商务站点日志、POS 销售数据和库存管理系统等数据。
 
 这些不同的数据类型用于来自数据管理管道的各种见解。
 
@@ -145,4 +145,4 @@ Azure Data Lake 服务还可以使用 [Data Lake Analytics](/azure/data-lake-ana
 - 查看真实的零售报告，说明 [Power BI](https://powerbi.microsoft.com/en-us/industries/retail/?WT.mc_id=retaildm-docs-dastarr) 如何针对已知问题给出更深入的见解，并启用趋势分析。
 - 访问 [Azure 市场](https://azuremarketplace.microsoft.com/?WT.mc_id=retaildm-docs-dastarr)，查找与本地已有解决方案兼容的解决方案。
 
-本文由 David Starr 和 Mariya Zorotovich 共同撰写。
+ 本文由 David Starr 和 Mariya Zorotovich 共同撰写。

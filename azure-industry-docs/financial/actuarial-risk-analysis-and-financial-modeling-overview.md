@@ -1,17 +1,17 @@
 ---
-title: 精算风险分析和建模解决方案指南
+title: 概述 - 将精算风险分析迁移到 Azure 的指南
 author: dstarr
 ms.author: dastarr
-ms.date: 08/29/2018
+ms.date: 11/20/2019
 ms.topic: article
 ms.service: industry
 description: 本文概述了精算开发人员如何将现有解决方案和支持基础设施迁移到 Azure 中。
-ms.openlocfilehash: b6bfecb27feeecf116e17f6d8eee9f1ab008576c
-ms.sourcegitcommit: 76f2862adbec59311b5888e043a120f89dc862af
+ms.openlocfilehash: cb571d996ab34da9157e9e211f354d7ce3d5f720
+ms.sourcegitcommit: b8f9ccc4e4453d6912b05cdd6cf04276e13d7244
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "51654074"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74263384"
 ---
 # <a name="actuarial-risk-analysis-and-financial-modeling"></a>精算风险分析和金融建模
 

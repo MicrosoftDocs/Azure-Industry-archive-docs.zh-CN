@@ -1,17 +1,17 @@
 ---
-title: 精算风险分析和建模解决方案指南
+title: 将精算风险分析迁移到 Azure 的指南
 author: scseely
 ms.author: scseely
-ms.date: 08/23/2018
+ms.date: 11/20/2019
 ms.topic: article
 ms.service: industry
-description: 本解决方案指南介绍精算开发人员如何将其现有解决方案和支持基础结构迁移到 Azure 中。
-ms.openlocfilehash: 82cb53d529f6d7524ae1f9c148118b5edddc648b
-ms.sourcegitcommit: 76f2862adbec59311b5888e043a120f89dc862af
+description: 精算开发人员如何将现有解决方案和支持基础设施迁移到 Azure。
+ms.openlocfilehash: 456c054cf3a6165f160005ba8ea2c155637faa07
+ms.sourcegitcommit: f030566b177715794d2ad857b150317e72d04d64
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "51654284"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74234537"
 ---
 # <a name="actuarial-risk-analysis-and-financial-modeling-solution-guide"></a>精算风险分析和金融建模解决方案指南
 
@@ -31,8 +31,8 @@ ms.locfileid: "51654284"
 
 相信云的承诺：它可以更快、更轻松地运行财务和风险模型。 对于许多保险公司而言，封底计算有一个问题：他们需要数年甚至数十年的连续时间来从头到尾运行这些计算。 需要技术来解决运行时问题。 策略包括：
 
-- 数据准备：某些数据变化缓慢。 一旦政策或服务协定生效，声明就会以可预测的速度迁移。 可以准备在模型到达时运行所需的数据，从而无需为数据清理和准备规划大量时间。 还可以使用群集通过加权的表示形式为连续数据创建备用项。 较少的记录通常会使计算时间缩短。
-- 并行化：如果需要对两个或多个项进行相同的分析，可以同时执行分析。
+- 数据准备：某些数据会缓慢更改。 一旦政策或服务协定生效，声明就会以可预测的速度迁移。 可以准备在模型到达时运行所需的数据，从而无需为数据清理和准备规划大量时间。 还可以使用群集通过加权的表示形式为连续数据创建备用项。 较少的记录通常会使计算时间缩短。
+- 并行化：如果需要对两个或更多项进行相同的分析，可以同时执行分析。
 
 让我们分别来看看这些项。
 
@@ -42,14 +42,14 @@ ms.locfileid: "51654284"
 
 那么，如何准备数据？ 让我们首先看看公共位，然后看看如何使用数据显示的不同方式。 首先，需要一种机制来获取自上次同步以来的所有更改。 该机制应包括一个可排序的值。 对于最近的更改，该值应大于以前的任何更改。 最常见的两种机制是不断增加的 ID 字段或时间戳。 如果记录具有不断增加的 ID 键，但记录的其余部分包含可更新的字段，则需要使用类似&quot;上次修改的&quot;时间戳的内容来查找更改。 记录处理完毕后，记下最后更新项的可排序值。 此值（可能是名为 _lastModified_ 的字段上的时间戳）将成为水印，用于数据存储上的后续查询。 可以通过多种方式处理数据更改。 以下是使用资源最少的两种常见机制：
 
-1. 如果要处理数百或数千个更改：将数据上载到 blob 存储。 使用 [Azure 数据工厂](https://docs.microsoft.com/azure/data-factory?WT.mc_id=riskmodel-docs-scseely)中的一个事件触发器来处理变更集。
+1. 如果要处理数百或数千个更改：将数据上传到 blob 存储。 使用 [Azure 数据工厂](https://docs.microsoft.com/azure/data-factory?WT.mc_id=riskmodel-docs-scseely)中的一个事件触发器来处理变更集。
 2. 如果要处理少量更改，或希望在更改发生后立即更新数据，请将每个更改放入由[服务总线](https://docs.microsoft.com/azure/service-bus-messaging?WT.mc_id=riskmodel-docs-scseely)或[存储队列](https://docs.microsoft.com/azure/storage/queues/storage-queues-introduction?WT.mc_id=riskmodel-docs-scseely)承载的队列消息中。 [本文](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted?WT.mc_id=riskmodel-docs-scseely)对这两种队列技术之间的权衡进行了很好的解释。 一旦消息进入队列后，可以使用 Azure Functions 或 Azure 数据工厂中的触发器来处理消息。
 
-下图演示了一个典型方案。 首先，计划的作业收集一些数据集并将文件放入存储中。 计划的作业可以是本地运行的 CRON 作业、[计划程序任务](https://docs.microsoft.com/azure/scheduler?WT.mc_id=riskmodel-docs-scseely)、[逻辑应用](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview?WT.mc_id=riskmodel-docs-scseely)或在计时器上运行的任何内容。 上载文件后，可以触发 [Azure Function](https://docs.microsoft.com/azure/azure-functions?WT.mc_id=riskmodel-docs-scseely)或**数据工厂**实例来处理数据。 如果可以在短时间内处理该文件，请使用 Function。 如果处理很复杂，需要 AI 或其他复杂的脚本，你可能会发现 [HDInsight](https://docs.microsoft.com/azure/hdinsight?WT.mc_id=riskmodel-docs-scseely)、[Azure Databricks](https://docs.microsoft.com/azure/azure-databricks?WT.mc_id=riskmodel-docs-scseely) 或自定义内容更有效。 完成后，该文件最终以可用的形式成为新文件或数据库中的记录。
+下图演示了一个典型方案。 首先，计划的作业收集一些数据集并将文件放入存储中。 计划的作业可以是本地运行的 CRON 作业、[计划程序任务](https://docs.microsoft.com/azure/scheduler?WT.mc_id=riskmodel-docs-scseely)、[逻辑应用](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview?WT.mc_id=riskmodel-docs-scseely)或在计时器上运行的任何内容。 上载文件后，可以触发 [Azure Function](https://docs.microsoft.com/azure/azure-functions?WT.mc_id=riskmodel-docs-scseely)或**数据工厂**实例来处理数据。 如果可以在短时间内处理该文件，请使用 Function  。 如果处理很复杂，需要 AI 或其他复杂的脚本，你可能会发现 [HDInsight](https://docs.microsoft.com/azure/hdinsight?WT.mc_id=riskmodel-docs-scseely)、[Azure Databricks](https://docs.microsoft.com/azure/azure-databricks?WT.mc_id=riskmodel-docs-scseely) 或自定义内容更有效。 完成后，该文件最终以可用的形式成为新文件或数据库中的记录。
 
  ![](./assets/insurance-risk-assets/process-files.png)
 
-数据进入 Azure 后，需要使其可供建模应用程序使用。 可以编写代码来执行自定义转换，通过 HDInsight 或 Azure Databricks 运行项目以引入较大的项，或将数据复制到正确的数据集中。 使用大数据工具还可以帮助完成将非结构化数据转换为结构化数据以及在接收到的数据上运行任何 AI 和 ML 等操作。 还可以托管虚拟机，从本地将数据直接上载到数据源，直接调用 Azure Functions 等等。
+数据进入 Azure 后，需要使其可供建模应用程序使用。 可以编写代码来执行自定义转换，通过 HDInsight  或 Azure Databricks  运行项目以引入较大的项，或将数据复制到正确的数据集中。 使用大数据工具还可以帮助完成将非结构化数据转换为结构化数据以及在接收到的数据上运行任何 AI 和 ML 等操作。 还可以托管虚拟机，从本地将数据直接上载到数据源，直接调用 Azure Functions 等等。
 
 稍后，模型需要用到这些数据。 执行此操作的方式在很大程度上取决于计算访问数据所需的方式。 某些建模系统要求所有数据文件都位于运行计算的节点上。 其他可以使用 [Azure SQL 数据库](https://docs.microsoft.com/azure/sql-database/?WT.mc_id=riskmodel-docs-scseely)、[MySQL](https://docs.microsoft.com/azure/mysql/?WT.mc_id=riskmodel-docs-scseely) 或 [PostgreSQL](https://docs.microsoft.com/azure/postgresql/?WT.mc_id=riskmodel-docs-scseely) 等数据库。 可以使用上述项目中的任何一个低成本版本，然后在建模运行期间扩展性能。 这为你提供了日常工作所需的成本，以及在数千个内核请求数据时的额外速度。 通常，此数据在建模运行期间将是只读的。 如果计算发生在多个区域中，请考虑使用 [Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/distribute-data-globally?WT.mc_id=riskmodel-docs-scseely) 或 [Azure SQL 异地复制](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview?WT.mc_id=riskmodel-docs-scseely)。 两者都具有以低延迟跨区域自动复制数据的机制。 你的选择取决于开发人员所知道的工具、对数据进行建模的方式以及用于建模运行的区域数量。
 
@@ -120,8 +120,8 @@ ms.locfileid: "51654284"
 ### <a name="tutorials"></a>教程
 
 - R 开发人员：[使用 Azure Batch 运行并行 R 模拟](https://docs.microsoft.com/azure/batch/tutorial-r-doazureparallel?WT.mc_id=riskmodel-docs-scseely)
-- 介绍如何使用 Azure Function 与存储进行交互的教程：[使用 Azure Functions 将图像上载到 Blob 存储](https://docs.microsoft.com/azure/functions/tutorial-static-website-serverless-api-with-database?tutorial-step=2&WT.mc_id=riskmodel-docs-scseely)
-- 使用 Databricks 执行 ETL 操作：[使用 Azure Databricks 提取、转换和加载数据](https://docs.microsoft.com/azure/azure-databricks/databricks-extract-load-sql-data-warehouse?WT.mc_id=riskmodel-docs-scseely)
-- 使用 HDInsight 执行 ETL 操作：[在 Azure HDInsight 上使用 Apache Hive 提取、转换和加载数据](https://docs.microsoft.com/azure/hdinsight/hdinsight-analyze-flight-delay-data-linux?toc=%2Fen-us%2Fazure%2Fhdinsight%2Fhadoop%2FTOC.json&amp;bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json&WT.mc_id=riskmodel-docs-scseely)
+- 介绍如何使用 Azure Functions 与存储交互的教程：[使用 Azure Functions 将图像上传到 Blob 存储](https://docs.microsoft.com/azure/functions/tutorial-static-website-serverless-api-with-database?tutorial-step=2&WT.mc_id=riskmodel-docs-scseely)
+- 使用 Databricks 进行 ETL：[使用 Azure Databricks 提取、转换和加载数据](https://docs.microsoft.com/azure/azure-databricks/databricks-extract-load-sql-data-warehouse?WT.mc_id=riskmodel-docs-scseely)
+- 在 HDInsight 中进行 ETL：[使用 Apache Hive on Azure HDInsight 提取、转换和加载数据](https://docs.microsoft.com/azure/hdinsight/hdinsight-analyze-flight-delay-data-linux?toc=%2Fen-us%2Fazure%2Fhdinsight%2Fhadoop%2FTOC.json&amp;bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json&WT.mc_id=riskmodel-docs-scseely)
 - Data Science VM 操作方法 (Linux)：[https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/linux-dsvm-walkthrough](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/linux-dsvm-walkthrough?WT.mc_id=riskmodel-docs-scseely)
 - Data Science VM 操作方法 (Windows)：[https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/vm-do-ten-things](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/vm-do-ten-things?WT.mc_id=riskmodel-docs-scseely)

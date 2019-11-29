@@ -1,18 +1,18 @@
 ---
-title: 概述：从 IoT 数据中提取可操作见解
+title: 从 IoT 数据摘要中提取可操作见解
 description: 使用 Azure 服务从 IoT 数据中提取见解。 概述了本解决方案指南。
 author: ercenk
 ms.author: ercenk
 manager: gmarchet
 ms.service: industry
 ms.topic: article
-ms.date: 09/26/2018
-ms.openlocfilehash: 9528983a06602bd469a4d651bda8478aa758152b
-ms.sourcegitcommit: 76f2862adbec59311b5888e043a120f89dc862af
+ms.date: 11/28/2019
+ms.openlocfilehash: 8ca31501d976e0b162735b7f55e2db7fae850776
+ms.sourcegitcommit: a6eefa2a605c9e1c5015ae107c9847b18d415746
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "51654114"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74540421"
 ---
 # <a name="extracting-actionable-insights-from-iot-data"></a>从 IoT 数据中提取可操作见解
 

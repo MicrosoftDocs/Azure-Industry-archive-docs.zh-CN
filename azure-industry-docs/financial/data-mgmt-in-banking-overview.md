@@ -1,17 +1,17 @@
 ---
-title: 概述：用于银行的数据管理
+title: 概述 - 通过 Azure 服务管理银行的数据资产
 author: dstarr
 ms.author: dastarr
-ms.date: 10/30/2019
+ms.date: 11/20/2019
 ms.topic: article
 ms.service: industry
 description: 介绍了在受管制的银行环境中使用 Microsoft Azure 管理数据的技术。
-ms.openlocfilehash: 1314054018c04e45b6450604febbf0142ead380d
-ms.sourcegitcommit: f42a60539bec2a7769b42b6574f09eed4d1b6c79
+ms.openlocfilehash: cfafd5242b6da994def2fe1470db9fd86b2675e7
+ms.sourcegitcommit: f030566b177715794d2ad857b150317e72d04d64
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73750534"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74234641"
 ---
 # <a name="data-management-in-banking-overview"></a>概述：用于银行的数据管理
 

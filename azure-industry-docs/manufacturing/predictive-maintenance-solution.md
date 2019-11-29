@@ -1,17 +1,17 @@
 ---
-title: 预测性维护解决方案
+title: 在制造业中通过 Azure ML 和 IoT 进行预测性维护
 author: ercenk
 ms.author: ercenk
-ms.date: 05/03/2018
+ms.date: 11/20/2019
 ms.topic: article
 ms.service: industry
 description: 有关如何为 Azure 上的制造客户开发预测性维护的解决方案说明。
-ms.openlocfilehash: 1c7b95e2da21df46465ccaf21827ae97597206a2
-ms.sourcegitcommit: 76f2862adbec59311b5888e043a120f89dc862af
+ms.openlocfilehash: c32893d534279cda35f7c6a142869d2983eaca67
+ms.sourcegitcommit: 2714a77488c413f01beb169a18acab45663bcfd7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "51654314"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74308490"
 ---
 # <a name="predictive-maintenance-in-manufacturing-solution-guide"></a>制造解决方案指南中的预测性维护
 
@@ -64,15 +64,15 @@ ms.locfileid: "51654314"
 
 ![机器学习模型生成阶段](assets/pdm-assets/mlmodelbuildingstages.png)
 
-Microsoft 已发布有关如何准备数据和训练机器学习模型的[详细指南](https://docs.microsoft.com/en-us/azure/machine-learning/team-data-science-process/cortana-analytics-playbook-predictive-maintenance?WT.mc_id=pdmsolution-docs-ercenk)。 存在三个典型维护问题以及相关的机器学习算法：
+Microsoft 已发布有关如何准备数据和训练机器学习模型的[详细指南](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/cortana-analytics-playbook-predictive-maintenance?WT.mc_id=pdmsolution-docs-ercenk)。 存在三个典型维护问题以及相关的机器学习算法：
 
-- _对于资产，在接下来的 X 小时内发生故障的概率是多少？_ 回答：0-100%
-  - **二进制分类：** 二进制分类是一种机器学习方法，它使用数据将项目或数据行的类别、类型或类确定为两个类之一的成员。 有多种类型的分类算法，Microsoft 发布了一组可用作[机器学习工作室模块](https://docs.microsoft.com/en-us/azure/machine-learning/studio-module-reference/machine-learning-initialize-model-classification?WT.mc_id=pdmsolution-docs-ercenk)的算法。
-- _资产的剩余使用寿命是多少？_ 回答：X 小时
-  - 回归：回归是一类机器学习算法，在给定一组其他变量的情况下预测变量的值。 机器学习工作室包括一组作为[模块](https://docs.microsoft.com/en-us/azure/machine-learning/studio-module-reference/machine-learning-initialize-model-regression?WT.mc_id=pdmsolution-docs-ercenk)的回归算法。
-    - 长短时记忆 (LSTM)：[LSTM](http://colah.github.io/posts/2015-08-Understanding-LSTMs/?WT.mc_id=pdmsolution-docs-ercenk) 网络是一种深度神经网络 (DNN)。 DNN 的灵感来自于模拟大脑中个体神经元的行为。 Microsoft 已发布了用于介绍如何使用 LSTM 进行预测性维护的[分步指南](https://docs.microsoft.com/en-us/azure/machine-learning/desktop-workbench/scenario-deep-learning-for-predictive-maintenance?WT.mc_id=pdmsolution-docs-ercenk)
-- _哪种资产最急需服务？_ 回答：资产 X
-  - 多类分类：多类分类是一种机器学习方法，它使用数据将项目或数据行的类别、类型或类确定为多于两个类的成员。
+- _对于资产，在接下来的 X 小时内发生故障的概率是多少？_ 答：0-100%
+  - **二元分类：** 二元分类是一种机器学习方法，它使用数据将数据项或数据行的类别、类型或类确定为两个类之一的成员。 有多种类型的分类算法，Microsoft 发布了一组可用作[机器学习工作室模块](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/machine-learning-initialize-model-classification?WT.mc_id=pdmsolution-docs-ercenk)的算法。
+- _资产的剩余使用寿命是多少？_ 答：X 小时
+  - **回归：** 回归是一类机器学习算法，用于预测变量的值（在给定一组其他变量的情况下）。 机器学习工作室包括一组作为[模块](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/machine-learning-initialize-model-regression?WT.mc_id=pdmsolution-docs-ercenk)的回归算法。
+    - **长短时记忆 (LSTM)：** [LSTM](https://colah.github.io/posts/2015-08-Understanding-LSTMs/?WT.mc_id=pdmsolution-docs-ercenk) 网络是一种深度神经网络 (DNN)。 DNN 的灵感来自于模拟大脑中个体神经元的行为。 Microsoft 已发布了用于介绍如何使用 LSTM 进行预测性维护的[分步指南](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/scenario-deep-learning-for-predictive-maintenance?WT.mc_id=pdmsolution-docs-ercenk)
+- _哪种资产最急需服务？_ 答：资产 X
+  - **多类分类：** 多类分类是一种机器学习方法，它使用数据将数据项或数据行的类别、类型或类确定为两个以上的类的成员。
 
 同样，引入数据可能意味着利用多个通道，首先批量初始化它，然后继续接收流数据以预测故障，同时将其用于模型的后续生成。
 
@@ -80,29 +80,29 @@ Microsoft 已发布有关如何准备数据和训练机器学习模型的[详细
 
 Microsoft Azure 提供用于引入和存储数据的各种服务。 我们建议使用批处理方法将数据传输到 Azure（如果尚未存在）。 如果可以将数据作为文件导出为已知格式（例如 csv、json、xml 等），这些都是不错的选择。 你也可以选择在上传之前压缩它们，并在云端进一步处理它们。
 
-- 使用 [AzCopy](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy?WT.mc_id=pdmsolution-docs-ercenk) 上传到 blob 存储（适用于 Windows 和 Linux）
+- 使用 [AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy?WT.mc_id=pdmsolution-docs-ercenk) 上传到 blob 存储（适用于 Windows 和 Linux）
 
-- [将 Blob 存储装载为](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-how-to-mount-container-linux?WT.mc_id=pdmsolution-docs-ercenk) Linux 上的文件系统
+- [将 Blob 存储装载为](https://docs.microsoft.com/azure/storage/blobs/storage-how-to-mount-container-linux?WT.mc_id=pdmsolution-docs-ercenk) Linux 上的文件系统
 
-- 使用[导入/导出服务](https://docs.microsoft.com/en-us/azure/storage/common/storage-import-export-service?WT.mc_id=pdmsolution-docs-ercenk)，如果数据量很大，则上传时间会很长
+- 使用[导入/导出服务](https://docs.microsoft.com/azure/storage/common/storage-import-export-service?WT.mc_id=pdmsolution-docs-ercenk)，如果数据量很大，则上传时间会很长
 
-- 在 Windows、Linux 和 MacOS 上[装载 Azure 文件](https://docs.microsoft.com/en-us/azure/storage/files/storage-how-to-use-files-windows?WT.mc_id=pdmsolution-docs-ercenk)共享
+- 在 Windows、Linux 和 MacOS 上[装载 Azure 文件](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-windows?WT.mc_id=pdmsolution-docs-ercenk)共享
 
-如果数据位于 SQL Server 数据库中，你还可以使用[数据迁移助手](https://docs.microsoft.com/en-us/sql/dma/dma-overview?WT.mc_id=pdmsolution-docs-ercenk)将数据上传到 Azure SQL 数据库。
+如果数据位于 SQL Server 数据库中，你还可以使用[数据迁移助手](https://docs.microsoft.com/sql/dma/dma-overview?WT.mc_id=pdmsolution-docs-ercenk)将数据上传到 Azure SQL 数据库。
 
-Azure 平台上有各种用于提取、转换和加载 (ETL) 操作的工具和服务。 最突出的服务是 [Azure 数据工厂](https://docs.microsoft.com/en-us/azure/data-factory/?WT.mc_id=pdmsolution-docs-ercenk)，它提供了一整套用于处理数据的功能。 Azure 上的许多 ML 服务通过开放源代码库提供用于操作数据的其他选项。
+Azure 平台上有各种用于提取、转换和加载 (ETL) 操作的工具和服务。 最突出的服务是 [Azure 数据工厂](https://docs.microsoft.com/azure/data-factory/?WT.mc_id=pdmsolution-docs-ercenk)，它提供了一整套用于处理数据的功能。 Azure 上的许多 ML 服务通过开放源代码库提供用于操作数据的其他选项。
 
 至于定型 ML 模式，Microsoft Azure 提供了许多选项，所有选项都可以以不同的组合使用。
 
-- [Azure 机器学习服务](https://docs.microsoft.com/en-us/azure/machine-learning/preview/?WT.mc_id=pdmsolution-docs-ercenk)
+- [Azure 机器学习服务](https://docs.microsoft.com/azure/machine-learning/preview/?WT.mc_id=pdmsolution-docs-ercenk)
 
-- [Azure 机器学习工作室](https://docs.microsoft.com/en-us/azure/machine-learning/studio/?WT.mc_id=pdmsolution-docs-ercenk)
+- [Azure 机器学习工作室](https://docs.microsoft.com/azure/machine-learning/studio/?WT.mc_id=pdmsolution-docs-ercenk)
 
-- [Data Science Virtual Machine](https://docs.microsoft.com/en-us/azure/machine-learning/data-science-virtual-machine/?WT.mc_id=pdmsolution-docs-ercenk)
+- [Data Science Virtual Machine](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/?WT.mc_id=pdmsolution-docs-ercenk)
 
-- [HDInsight 中的 Spark MLLib](https://docs.microsoft.com/en-us/azure/hdinsight/spark/apache-spark-machine-learning-mllib-ipython?WT.mc_id=pdmsolution-docs-ercenk)
+- [HDInsight 中的 Spark MLLib](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-machine-learning-mllib-ipython?WT.mc_id=pdmsolution-docs-ercenk)
 
-- [Batch AI 定型服务](https://docs.microsoft.com/en-us/azure/batch-ai/?WT.mc_id=pdmsolution-docs-ercenk)
+- [Batch AI 定型服务](https://docs.microsoft.com/azure/batch-ai/?WT.mc_id=pdmsolution-docs-ercenk)
 
 决定使用哪种工具取决于操作的复杂性、团队经验以及数据的大小。
 
@@ -110,7 +110,7 @@ Azure 平台上有各种用于提取、转换和加载 (ETL) 操作的工具和�
 
 设计用于分析数据和发布模型的过程是详细主题，并且根据所使用的技术而不同。 这些主题超出了本文的范围。 介绍流程的一系列文章以及可用于生成模型的 Azure 服务可用。 Microsoft 还提供了一种用于生成解决方案的系统化方法，使数据科学团队能够在数据生命周期内有效协作。
 
-Microsoft [机器学习文档](https://docs.microsoft.com/en-us/azure/machine-learning?WT.mc_id=pdmsolution-docs-ercenk)是探索生成、部署和管理 ML 和到云的 AI 模型选项的良好起点。
+Microsoft [机器学习文档](https://docs.microsoft.com/azure/machine-learning?WT.mc_id=pdmsolution-docs-ercenk)是探索生成、部署和管理 ML 和到云的 AI 模型选项的良好起点。
 
 Microsoft Azure 平台为按比例处理数据并生成 ML 模型提供了丰富的选择。 云平台上几乎可无限缩放的的计算和存储功能使生成 ML 和 AI 模型成为可能。 因此，使用 Azure 服务生成模型是实现此数据流的最合理选择。
 
@@ -124,13 +124,13 @@ Microsoft Azure 平台为按比例处理数据并生成 ML 模型提供了丰富
 
 Microsoft Azure 平台提供了各种用于引入、处理和存储数据的服务，例如：
 
-- [Azure 事件中心](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-what-is-event-hubs?WT.mc_id=pdmsolution-docs-ercenk)
+- [Azure 事件中心](https://docs.microsoft.com/azure/event-hubs/event-hubs-what-is-event-hubs?WT.mc_id=pdmsolution-docs-ercenk)
 
-- [Azure 服务总线](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-messaging-overview?WT.mc_id=pdmsolution-docs-ercenk)
+- [Azure 服务总线](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-messaging-overview?WT.mc_id=pdmsolution-docs-ercenk)
 
-- [Azure IoT 中心](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-what-is-iot-hub?WT.mc_id=pdmsolution-docs-ercenk)
+- [Azure IoT 中心](https://docs.microsoft.com/azure/iot-hub/iot-hub-what-is-iot-hub?WT.mc_id=pdmsolution-docs-ercenk)
 
-- [Apache Kafka for HDInsight](https://docs.microsoft.com/en-us/azure/hdinsight/kafka/apache-kafka-introduction?WT.mc_id=pdmsolution-docs-ercenk)
+- [Apache Kafka for HDInsight](https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-introduction?WT.mc_id=pdmsolution-docs-ercenk)
 
 与生成 ML 模型的过程不同，使用它不需要大量计算资源。 根据需要，可以将模型部署到云中的服务，或部署到本地工厂车间。
 
@@ -144,9 +144,9 @@ ML 模型在本地使用，而数据则发送到云以供引入、存储和进�
 
 ## <a name="cloud-execution"></a>云执行
 
-ML 模型的引入、处理、存储和执行都可以在 Azure 云中进行。 当在多个租户或地理区域之间共享 ML 模型执行结果并且延迟并不重要时，此选项可能更适合。 按照称为[“代表”模式](https://docs.microsoft.com/en-us/azure/architecture/patterns/ambassador?WT.mc_id=pdmsolution-docs-ercenk)的模式，可以在本地添加一个可选组件（通常称为“边缘网关”）来执行某些工作，例如数据聚合和投影、流分析等。
+ML 模型的引入、处理、存储和执行都可以在 Azure 云中进行。 当在多个租户或地理区域之间共享 ML 模型执行结果并且延迟并不重要时，此选项可能更适合。 按照称为[“代表”模式](https://docs.microsoft.com/azure/architecture/patterns/ambassador?WT.mc_id=pdmsolution-docs-ercenk)的模式，可以在本地添加一个可选组件（通常称为“边缘网关”）来执行某些工作，例如数据聚合和投影、流分析等。
 
-在 Azure 上使用该模型有多种方法。 [Azure 机器学习 Web 服务](https://docs.microsoft.com/en-us/azure/machine-learning/studio/consume-web-services?WT.mc_id=pdmsolution-docs-ercenk)是最直接的方法，并使用 [Azure 机器学习工作室](https://docs.microsoft.com/en-us/azure/machine-learning/studio/what-is-ml-studio?WT.mc_id=pdmsolution-docs-ercenk)作为创建模型的选择。 还可以选择 [Azure 机器学习模型管理](https://docs.microsoft.com/en-us/azure/machine-learning/preview/model-management-overview?WT.mc_id=pdmsolution-docs-ercenk)方法，它提供了一整套用于管理模型的服务，并提供 REST API 端点，具有身份验证、负载均衡、自动横向扩展和加密功能。 该模型可以部署到单台计算机（例如 Data Science Virtual Machine、IoT 设备、本地 PC）或 [Azure 容器服务](https://docs.microsoft.com/en-us/azure/aks/intro-kubernetes?WT.mc_id=pdmsolution-docs-ercenk)。 一旦通过 REST API 公开此模型，从自定义应用程序到企业解决方案集成，它的用途是无穷无尽的。
+在 Azure 上使用该模型有多种方法。 [Azure 机器学习 Web 服务](https://docs.microsoft.com/azure/machine-learning/studio/consume-web-services?WT.mc_id=pdmsolution-docs-ercenk)是最直接的方法，并使用 [Azure 机器学习工作室](https://docs.microsoft.com/azure/machine-learning/studio/what-is-ml-studio?WT.mc_id=pdmsolution-docs-ercenk)作为创建模型的选择。 还可以选择 [Azure 机器学习模型管理](https://docs.microsoft.com/azure/machine-learning/preview/model-management-overview?WT.mc_id=pdmsolution-docs-ercenk)方法，它提供了一整套用于管理模型的服务，并提供 REST API 端点，具有身份验证、负载均衡、自动横向扩展和加密功能。 该模型可以部署到单台计算机（例如 Data Science Virtual Machine、IoT 设备、本地 PC）或 [Azure 容器服务](https://docs.microsoft.com/azure/aks/intro-kubernetes?WT.mc_id=pdmsolution-docs-ercenk)。 一旦通过 REST API 公开此模型，从自定义应用程序到企业解决方案集成，它的用途是无穷无尽的。
 
 ![仅限云](assets/pdm-assets/cloudonly.png)
 
@@ -156,7 +156,7 @@ ML 模型的引入、处理、存储和执行都可以在 Azure 云中进行。 
 
 许多 IoT 解决方案都会将数据作为其功能集的一部分进行引入和存储。 由于预测性维护解决方案通常依赖于 IoT 数据，因此它们可以成为添加到 IoT 解决方案的自然功能。 在这种情况下要强调的一个关键点是，记录现有数据中的故障以定型故障的预测模型的重要性。
 
-一些用例需要进行准实时数据处理。 在这些情况下，我们需要具有高数据引入率功能的可缩放 IoT 解决方案。 Microsoft Azure 平台提供了许多服务，以便为可高度缩放的 IoT 需求提供解决方案。 Azure 平台上的 [Microsoft IoT 解决方案体系结构](https://docs.microsoft.com/en-us/azure/iot-suite/iot-suite-what-is-azure-iot?WT.mc_id=pdmsolution-docs-ercenk)在三个阶段具有逻辑组件：
+一些用例需要进行准实时数据处理。 在这些情况下，我们需要具有高数据引入率功能的可缩放 IoT 解决方案。 Microsoft Azure 平台提供了许多服务，以便为可高度缩放的 IoT 需求提供解决方案。 Azure 平台上的 [Microsoft IoT 解决方案体系结构](https://docs.microsoft.com/azure/iot-suite/iot-suite-what-is-azure-iot?WT.mc_id=pdmsolution-docs-ercenk)在三个阶段具有逻辑组件：
 
 - 设备连接
 
@@ -166,7 +166,7 @@ ML 模型的引入、处理、存储和执行都可以在 Azure 云中进行。 
 
 ![IoT 解决方案体系结构](assets/pdm-assets/iot.png)
 
-Azure IoT 解决方案体系结构的详细信息[可联机获取](http://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf?WT.mc_id=pdmsolution-docs-ercenk)。
+Azure IoT 解决方案体系结构的详细信息[可联机获取](https://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf?WT.mc_id=pdmsolution-docs-ercenk)。
 但是，由于可能有大量设备连接到后端服务，因此可能会出现独特挑战。
 
 ## <a name="data-ingestion-and-stream-processing"></a>数据引入和流式传输处理
@@ -180,16 +180,16 @@ Azure IoT 解决方案体系结构的详细信息[可联机获取](http://downlo
 为数据引入注入新组件可使通信更具可缩放性。 该组件需要具有可缩放性、安全性并且大概可以进行全局访问，具有异地分区数据引入进程的选项。 
 
 考虑预测性维护是 IoT 解决方案的一个特征。 当数据流通过网关时，需要将其路由到与预测性维护功能相关的服务。
-另一种需要考虑的模式是[网关路由](https://docs.microsoft.com/en-us/azure/architecture/patterns/gateway-routing?WT.mc_id=pdmsolution-docs-ercenk)。
+另一种需要考虑的模式是[网关路由](https://docs.microsoft.com/azure/architecture/patterns/gateway-routing?WT.mc_id=pdmsolution-docs-ercenk)。
 
-这两种模式都可以使用 Azure 服务、[IoT 中心](https://azure.microsoft.com/en-us/services/iot-hub/?WT.mc_id=pdmsolution-docs-ercenk)和 [Azure 流分析](https://azure.microsoft.com/en-us/services/stream-analytics/?WT.mc_id=pdmsolution-docs-ercenk)来实现。
+这两种模式都可以使用 Azure 服务、[IoT 中心](https://azure.microsoft.com/services/iot-hub/?WT.mc_id=pdmsolution-docs-ercenk)和 [Azure 流分析](https://azure.microsoft.com/services/stream-analytics/?WT.mc_id=pdmsolution-docs-ercenk)来实现。
 
 ## <a name="edge-and-cloud-processing-cooperation"></a>Edge 和云处理协作
 
 并非所有设备和装置都可以直接稳定地访问互联网。
-有时它们的数据需要从通用网关中拉取出来。 例如，[MTConnect](http://www.mtconnect.org/) 代理仅提供用于拉取数据的 REST 接口。
+有时它们的数据需要从通用网关中拉取出来。 例如，[MTConnect](https://www.mtconnect.org/) 代理仅提供用于拉取数据的 REST 接口。
 
-可能存在其他考虑因素，例如延迟，在将设备数据发送到云之前需要在本地推移设备数据（多租户情况），以及需要对设备数据执行投影或聚合。 [代表模式](https://docs.microsoft.com/en-us/azure/architecture/patterns/ambassador?WT.mc_id=pdmsolution-docs-ercenk)是解决这些需求的好方法。 [Microsoft Azure IoT Edge](https://docs.microsoft.com/en-us/azure/iot-edge/how-iot-edge-works?WT.mc_id=pdmsolution-docs-ercenk) 是一种实现，可以充当 [Microsoft Azure IoT 中心](https://azure.microsoft.com/en-us/services/iot-hub/?WT.mc_id=pdmsolution-docs-ercenk)的代理，并提供本地处理及远程管理功能。
+可能存在其他考虑因素，例如延迟，在将设备数据发送到云之前需要在本地推移设备数据（多租户情况），以及需要对设备数据执行投影或聚合。 [代表模式](https://docs.microsoft.com/azure/architecture/patterns/ambassador?WT.mc_id=pdmsolution-docs-ercenk)是解决这些需求的好方法。 [Microsoft Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/how-iot-edge-works?WT.mc_id=pdmsolution-docs-ercenk) 是一种实现，可以充当 [Microsoft Azure IoT 中心](https://azure.microsoft.com/services/iot-hub/?WT.mc_id=pdmsolution-docs-ercenk)的代理，并提供本地处理及远程管理功能。
 
 常见部署包括车间的准实时警报，同时仍推移数据并将其发布到云中的多租户解决方案，以进行存档、模型定型和非时间关键报告。 借助 Azure IoT Edge 和 IoT 中心的功能，客户可以控制边缘设备上的数据筛选选项，以及与其他车间系统交互以发送警报。
 
@@ -203,7 +203,7 @@ Azure IoT 解决方案体系结构的详细信息[可联机获取](http://downlo
 
 提供服务的一方必须确保可识别并妥善保护或推移其客户的机密信息。Microsoft Azure 提供了根据所使用的存储服务加密数据的功能。
 
-设备生成和提交数据的方式也需要使用已知方法进行保护，例如每设备证书、每设备启用/禁用、TLS 安全、X.509 支持、IP 允许列表/阻止列表以及共享访问策略。 提供服务的一方必须确保可识别并妥善保护或推移客户的机密信息。[Azure Data Lake Store](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-encryption?WT.mc_id=pdmsolution-docs-ercenk)、[Azure 存储](https://docs.microsoft.com/en-us/azure/storage/common/storage-service-encryption?WT.mc_id=pdmsolution-docs-ercenk)、[Azure Cosmos DB](https://docs.microsoft.com/en-us/azure/cosmos-db/database-encryption-at-rest?WT.mc_id=pdmsolution-docs-ercenk) 和 [Azure SQL 数据库](https://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql?WT.mc_id=pdmsolution-docs-ercenk)是可用于加密静态数据的服务示例。 解决方案提供商还应考虑如何在同一资源（例如数据库）或多个资源内对数据进行分区。 
+设备生成和提交数据的方式也需要使用已知方法进行保护，例如每设备证书、每设备启用/禁用、TLS 安全、X.509 支持、IP 允许列表/阻止列表以及共享访问策略。 提供服务的一方必须确保可识别并妥善保护或推移客户的机密信息。[Azure Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-encryption?WT.mc_id=pdmsolution-docs-ercenk)、[Azure 存储](https://docs.microsoft.com/azure/storage/common/storage-service-encryption?WT.mc_id=pdmsolution-docs-ercenk)、[Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/database-encryption-at-rest?WT.mc_id=pdmsolution-docs-ercenk) 和 [Azure SQL 数据库](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql?WT.mc_id=pdmsolution-docs-ercenk)是可用于加密静态数据的服务示例。 解决方案提供商还应考虑如何在同一资源（例如数据库）或多个资源内对数据进行分区。 
 
 ### <a name="geographical-considerations"></a>地理位置注意事项
 
@@ -223,7 +223,7 @@ Azure IoT 解决方案体系结构的详细信息[可联机获取](http://downlo
 
 除了满足功能要求之外，复杂系统还需要进行额外的详细审查。 一个成功的云解决方案应注重五大构成要素：可伸缩性、可用性、复原能力、管理和安全性。 除了五大构成要素外，我们还希望提高解决方案的成本效益。
 
-有关详细信息，请参阅[软件质量的构成要素](https://docs.microsoft.com/en-us/azure/architecture/guide/pillars?WT.mc_id=pdmsolution-docs-ercenk)文章。
+有关详细信息，请参阅[软件质量的构成要素](https://docs.microsoft.com/azure/architecture/guide/pillars?WT.mc_id=pdmsolution-docs-ercenk)文章。
 
 | 构成要素                      |                                                                                                                                                                                                                                                                                                                                                                                                 |
 |-----------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -243,10 +243,10 @@ Azure IoT 解决方案体系结构的详细信息[可联机获取](http://downlo
 
 1. [面向未来：停止缅怀过去，并通过 IoT 展望不可预知的未来](https://blogs.microsoft.com/iot/2017/02/28/future-focused-stop-thinking-in-the-past-and-get-ahead-of-the-unexpected-with-iot-2/?WT.mc_id=pdmsolution-docs-ercenk)
 
-2. [通过已启用 IoT 的预测性维护提高设备可靠性](https://www.microsoft.com/en-us/internet-of-things/predictive-maintenance?WT.mc_id=pdmsolution-docs-ercenk)
+2. [通过已启用 IoT 的预测性维护提高设备可靠性](https://www.microsoft.com/internet-of-things/predictive-maintenance?WT.mc_id=pdmsolution-docs-ercenk)
 
-3. [获取物联网的价值：如何处理预测性维护项目](http://download.microsoft.com/download/0/7/D/07D394CE-185D-4B96-AC3C-9B61179F7080/Capture_value_from_the_Internet%20of%20Things_with_Predictive_Maintenance.PDF?WT.mc_id=pdmsolution-docs-ercenk)
+3. [从物联网捕获价值：如何处理预测性维护项目](https://download.microsoft.com/download/0/7/D/07D394CE-185D-4B96-AC3C-9B61179F7080/Capture_value_from_the_Internet%20of%20Things_with_Predictive_Maintenance.PDF?WT.mc_id=pdmsolution-docs-ercenk)
 
 4. [合作伙伴透视：一线预测性维护](https://blogs.microsoft.com/iot/2017/03/21/partner-perspectives-predictive-maintenance-on-the-frontlines/?WT.mc_id=pdmsolution-docs-ercenk)
 
-5. [从商品化到服务化：转换业务，以便在新的现场服务时代通过 IoT 进行竞争](https://blogs.microsoft.com/iot/2016/11/07/from-commodization-to-servitization-transforming-your-business-to-compete-in-the-new-age-of-field-service-with-iot/?WT.mc_id=pdmsolution-docs-ercenk)
+5. [从商品化到服务化：转换业务，以便在新的现场服务时代借助 IoT 来竞争](https://blogs.microsoft.com/iot/2016/11/07/from-commodization-to-servitization-transforming-your-business-to-compete-in-the-new-age-of-field-service-with-iot/?WT.mc_id=pdmsolution-docs-ercenk)

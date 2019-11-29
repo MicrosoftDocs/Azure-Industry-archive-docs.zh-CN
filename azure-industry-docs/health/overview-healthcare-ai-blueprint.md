@@ -1,17 +1,17 @@
 ---
-title: 实现 Azure AI 蓝图
+title: 实现 Azure AI 蓝图摘要
 author: dstarr
 ms.author: dastarr
-ms.date: 11/07/2019
+ms.date: 11/20/2019
 ms.topic: article
 ms.service: industry
 description: 本文介绍了 Microsoft Azure AI 蓝图。
-ms.openlocfilehash: bcf8ff2f7a84f1b5d4848d6eb77ba51dec114f27
-ms.sourcegitcommit: 385e99900bc20950f02a63c885facc1cf62c49df
+ms.openlocfilehash: fb4dbce8b0cf1d39fc03708303267a0bf2906d18
+ms.sourcegitcommit: b8f9ccc4e4453d6912b05cdd6cf04276e13d7244
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73845617"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74263371"
 ---
 # <a name="implementing-the-azure-blueprint-for-ai"></a>实现 Azure AI 蓝图
 

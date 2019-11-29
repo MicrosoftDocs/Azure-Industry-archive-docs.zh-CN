@@ -1,17 +1,17 @@
 ---
-title: 概述：银行业务风险网格计算
+title: 使用 Azure Batch、Azure Data Lake 进行网格计算风险分析
 author: dstarr
 ms.author: dastarr
-ms.date: 04/12/2018
+ms.date: 11/20/2019
 ms.topic: article
 ms.service: industry
 description: 介绍了在 Azure 上实现银行业务风险网格计算的企业注意事项。
-ms.openlocfilehash: 49d3d5223bee85689043d84eb5236cca4f53fc03
-ms.sourcegitcommit: 76f2862adbec59311b5888e043a120f89dc862af
+ms.openlocfilehash: 746b93e545aa8ff61a8fab4a021b6c5caa1889bb
+ms.sourcegitcommit: f030566b177715794d2ad857b150317e72d04d64
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "51654174"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74234651"
 ---
 # <a name="risk-grid-computing-in-banking-overview"></a>概述：银行业务风险网格计算
 
@@ -53,7 +53,7 @@ Azure 提供了使用 Azure Batch 进行风险网格计算的精妙解决方案�
 
 当现有资源激增时（增加了客户的数据中心或私有云资源），“云爆发”会将计算作业卸载到基于云的计算机中。 使用混合网络模型，可以轻松执行云爆发方案，因为基于云的风险计算网格是现有网络的简单扩展。
 
-除了上面逻辑体系结构中提供的简单模型之外，还有几种网络连接配置。 若要获取将网络连接到 Azure 方面的决策制定和体系结构指导帮助，请参阅[将本地网络连接到 Azure](/azure/architecture/reference-architectures/hybrid-networking/) 一文。
+除了上面逻辑体系结构中提供的简单模型之外，还有几种网络连接配置。 若要获取将网络连接到 Azure 方面的决策制定和体系结构指导帮助，请参阅[将本地网络连接到 Azure  ](/azure/architecture/reference-architectures/hybrid-networking/) 一文。
 
 ### <a name="rest-api-solution-over-internet"></a>通过 Internet 的 REST API 解决方案
 
@@ -86,7 +86,7 @@ Azure Batch 处理模型带来了多项风险网格计算优势：
 
 如果需要更多计算容量（如季度评估），还可以通过 Azure Batch 自动缩放获取额外容量。 自动缩放让 Batch 解决方案有弹性。 通过缩放资源以匹配所需负载，Azure 提供明显更大的容量，但成本却低于硬件拥有成本。
 
-大多数商业网格产品确实支持某种形式的云爆发，可便于你更轻松地利用风险分析负载的概念证明。 例如，[Microsoft HPC Pack](/azure/virtual-machines/windows/hpcpack-cluster-options?WT.mc_id=gridbank-docs-dastarr) 可以在 Azure 中运行，也可以在 TIBCO、Univa 等公司的产品中运行。 这些第三方工具或系统大多可以通过 [Azure 市场](https://azuremarketplace.microsoft.com/en-us/marketplace/?WT.mc_id=gridbank-docs-dastarr)获得。
+大多数商业网格产品确实支持某种形式的云爆发，可便于你更轻松地利用风险分析负载的概念证明。 例如，[Microsoft HPC Pack](/azure/virtual-machines/windows/hpcpack-cluster-options?WT.mc_id=gridbank-docs-dastarr) 可以在 Azure 中运行，也可以在 TIBCO、Univa 等公司的产品中运行。 这些第三方工具或系统大多可以通过 [Azure 市场](https://azuremarketplace.microsoft.com/marketplace/?WT.mc_id=gridbank-docs-dastarr)获得。
 
 ### <a name="migrating-additional-resources-to-the-cloud"></a>将其他资源迁移到云中
 
@@ -108,7 +108,7 @@ Azure Batch 处理模型带来了多项风险网格计算优势：
 
 值得注意的风险网格计算注意事项是，[在 Azure VNet 中运行批处理](/azure/batch/batch-virtual-network?WT.mc_id=gridbank-docs-dastarr)。 这样一来，池计算节点可以与其他计算节点或本地网络安全通信。 应由批处理计算节点创建和使用相应的服务帐户和网络服务组 (NSG)。 对于 Azure 存储内的传输中数据和静态数据，[Azure 还有相应的加密解决方案](/azure/security/blueprints/financial-services-regulated-workloads?WT.mc_id=gridbank-docs-dastarr)。
 
-可能需要注意以下几点：Active Directory (AD) 或非 AD 已加入计算节点（对于 Windows Server nodes?WT.mc_id=gridbank-docs-dastarr）、[VM 磁盘加密](/azure/security/azure-security-disk-encryption?WT.mc_id=gridbank-docs-dastarr)、静态和传输中计算输入和输出数据的安全性、Azure 网络配置、权限等。 身份验证还可以通过密钥在 REST API 一级进行处理。
+可能需要注意以下几个方面：加入 Active Directory (AD) 或未加入 AD 的计算节点（对于 Windows Server nodes?WT.mc_id=gridbank-docs-dastarr）、[VM 磁盘加密](/azure/security/azure-security-disk-encryption?WT.mc_id=gridbank-docs-dastarr)、静态和传输中计算输入和输出数据的安全性、Azure 网络配置、权限等。 身份验证还可以通过密钥在 REST API 一级进行处理。
 
 ## <a name="getting-started"></a>入门
 
