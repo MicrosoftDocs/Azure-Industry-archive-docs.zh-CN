@@ -55,14 +55,14 @@
       items:
         - name: 用于零售业的数据管理概述
           href: retail/retail-data-management-overview.md
-        - name: 概述：将电子商务解决方案迁移到 Azure
+        - name: 将电子商务解决方案迁移到 Azure 的概述
           href: retail/migrating-ecommerce-solution-to-azure.md
-        - name: 优化和重用现有建议系统
+        - name: 优化和重用现有推荐系统
           href: retail/recommendation-engine-optimization.md
         - name: 符合 PCI DSS 的付款处理
           href: /azure/security/blueprints/payment-processing-blueprint
           maintainContext: true
-        - name: 概述：视觉搜索
+        - name: 视觉搜索概述
           href: retail/visual-search-use-case-overview.md
         - name: 消费者品牌的 SKU 优化
           items:

@@ -7,11 +7,11 @@ ms.topic: article
 ms.service: industry
 description: 介绍了在受管制的银行环境中使用 Microsoft Azure 管理数据的技术。
 ms.openlocfilehash: cfafd5242b6da994def2fe1470db9fd86b2675e7
-ms.sourcegitcommit: f030566b177715794d2ad857b150317e72d04d64
-ms.translationtype: HT
+ms.sourcegitcommit: 3b175d73a82160c4cacec1ce00c6d804a93c765d
+ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74234641"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77052920"
 ---
 # <a name="data-management-in-banking-overview"></a>概述：用于银行的数据管理
 
@@ -203,7 +203,7 @@ Databricks 是在需要转换或分析数据时使用的逻辑处理管道。 �
 
 随着银行和金融业的数字环境快速变化，客户日越来越多地寄希望于找到能立即利用且无需缓慢增强的解决方案和合作伙伴。 随着数据引入激增，银行越来越需要通过快速、创新和安全的方法来存储、分析和使用重要数据。
 
-Azure 有助于通过多个技术和策略来满足数据引入、处理、存档和删除需求。 将数据引入 Azure 很简单，可使用各种数据存储来存储数据，具体视数据类型、结构等而异。除了 SQL Server 和 SQL Azure 以外，数据解决方案还包含第三方数据库。
+Azure 有助于通过多个技术和策略来满足数据引入、处理、存档和删除需求。 将数据引入 Azure 是一个简单的数据存储，可用于根据数据类型、结构等存储数据。除了包含第三方数据库 SQL Server 和 SQL Azure 以外，还提供了数据解决方案。
 
 通过使用 Databricks 和数据工厂等 Azure 服务，可以很轻松地对数据执行操作。 存档存储适用于长期存储极少获访问的数据，可以根据需要按滚动周期删除它。
 

@@ -7,11 +7,11 @@ ms.topic: article
 ms.service: industry
 description: Azure Industry Experiences 中的制造用例
 ms.openlocfilehash: 01a57c639f14cc3b0c7f3a57317764a4b93c194f
-ms.sourcegitcommit: b8f9ccc4e4453d6912b05cdd6cf04276e13d7244
-ms.translationtype: HT
+ms.sourcegitcommit: 3b175d73a82160c4cacec1ce00c6d804a93c765d
+ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74263465"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77053532"
 ---
 # <a name="manufacturing-industry"></a>制造业
 

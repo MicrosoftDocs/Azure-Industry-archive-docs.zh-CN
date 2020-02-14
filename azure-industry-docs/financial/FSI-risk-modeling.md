@@ -7,11 +7,11 @@ ms.service: industry
 ms.topic: overview
 ms.date: 11/19/2019
 ms.openlocfilehash: 03fea3996b62782c2b65e6d2edf841b5adaebcd2
-ms.sourcegitcommit: f030566b177715794d2ad857b150317e72d04d64
-ms.translationtype: HT
+ms.sourcegitcommit: 3b175d73a82160c4cacec1ce00c6d804a93c765d
+ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74234548"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77052495"
 ---
 # <a name="enabling-the-financial-services-risk-lifecycle-with-azure-and-r"></a>通过 Azure 和 R 启用金融服务风险生命周期
 
@@ -176,7 +176,7 @@ estimateGBM_Parameters <- function(logReturns,dt = 1/252) {
 GBM_Parameters <- estimateGBM_Parameters(df_instrument.dailyReturns[1:length(df_instrument.dailyReturns) - 1])
 ````
 
-接下来，我们为基础股票价格建模。 可以从头开始实施离散型 GBM 流程，也可以使用提供此功能的众多 R 包之一。 我们使用 R 包 [sde  （随机微分方程的模拟和推断）](https://cran.r-project.org/web/packages/sde/index.html)，它提供了可解决此问题的一种方法。 GBM 方法需要一组参数，这些参数要么根据历史数据进行校准，要么是既定的模拟参数。 我们使用了历史数据，在开始模拟时提供 μ、σ 和股票价格 (P0)。
+接下来，我们为基础股票价格建模。 可以从头开始实施离散型 GBM 流程，也可以使用提供此功能的众多 R 包之一。 我们使用 R 包 [sde（随机微分方程的模拟和推断）](https://cran.r-project.org/web/packages/sde/index.html)，它提供了可解决此问题的一种方法。 GBM 方法需要一组参数，这些参数要么根据历史数据进行校准，要么是既定的模拟参数。 我们使用了历史数据，在开始模拟时提供 μ、σ 和股票价格 (P0)。
 
 ````R
 if (!require(sde)) install.packages('sde')
@@ -376,7 +376,7 @@ body <- whisker.render(template, data)
 ````
 
 
-接下来，需要调用 Web 服务。 本例中调用 StartCreditExposure 方法来触发计算。 我们将 API 的终结点存储在名为“endpoint”  的变量中。
+接下来，需要调用 Web 服务。 本例中调用 StartCreditExposure 方法来触发计算。 我们将 API 的终结点存储在名为“endpoint”的变量中。
 
 ````R
 # make the call
@@ -437,10 +437,10 @@ plot(as.numeric(df$term[df$statistic == 'PFE']) / 365, df$result[df$statistic ==
 
 - R 开发人员：[使用 Azure Batch 运行并行 R 模拟](https://docs.microsoft.com/azure/batch/tutorial-r-doazureparallel?WT.mc_id=fsiriskmodelr-docs-scseely)
 
-- [基本 R 命令和 RevoScaleR 函数：25 个常见示例](https://docs.microsoft.com/machine-learning-server/r/tutorial-r-to-revoscaler?WT.mc_id=fsiriskmodelr-docs-scseely)
+- [基本 R 命令和 RevoScaleR 函数：25个常见示例](https://docs.microsoft.com/machine-learning-server/r/tutorial-r-to-revoscaler?WT.mc_id=fsiriskmodelr-docs-scseely)
 
 - [使用 RevoScaleR 可视化和分析数据](https://docs.microsoft.com/machine-learning-server/r/tutorial-revoscaler-data-model-analysis?WT.mc_id=fsiriskmodelr-docs-scseely)
 
 - [HDInsight 上的 ML 服务和开放源代码 R 功能简介](https://docs.microsoft.com/azure/hdinsight/r-server/r-server-overview?WT.mc_id=fsiriskmodelr-docs-scseely)
 
-_本文由 Darko Mocelj 博士和 Rupert Nicolay 共同撰写。_
+_本文是由 Darko Mocelj 和 Rupert Nicolay 创作的。_

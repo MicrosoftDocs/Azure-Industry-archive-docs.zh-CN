@@ -7,11 +7,11 @@ ms.topic: article
 ms.service: industry
 description: 本文介绍了 Microsoft Azure AI 蓝图。
 ms.openlocfilehash: fb4dbce8b0cf1d39fc03708303267a0bf2906d18
-ms.sourcegitcommit: b8f9ccc4e4453d6912b05cdd6cf04276e13d7244
-ms.translationtype: HT
+ms.sourcegitcommit: 3b175d73a82160c4cacec1ce00c6d804a93c765d
+ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74263371"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77053549"
 ---
 # <a name="implementing-the-azure-blueprint-for-ai"></a>实现 Azure AI 蓝图
 

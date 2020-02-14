@@ -7,11 +7,11 @@ ms.topic: article
 ms.service: industry
 description: 本文介绍了将电子商务基础结构从本地迁移到 Azure 的阶段。
 ms.openlocfilehash: e918f1157dc2bc42a6c4d0decfef95a8daa7ccf0
-ms.sourcegitcommit: b8f9ccc4e4453d6912b05cdd6cf04276e13d7244
-ms.translationtype: HT
+ms.sourcegitcommit: 3b175d73a82160c4cacec1ce00c6d804a93c765d
+ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74263349"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77054178"
 ---
 # <a name="migrating-your-e-commerce-solution-to-azure-overview"></a>将电子商务解决方案迁移到 Azure 的概述
 
@@ -41,9 +41,9 @@ ms.locfileid: "74263349"
 
 若要在 Azure 中重新托管，有以下三个阶段：
 
-- **分析**：识别并清点应用程序、工作负荷、网络和安全性等本地资源。 在此阶段结束时，你已完成现有系统的记录。
-- **迁移**：将每个子系统从本地移动到 Azure。 在此阶段中，你会将 Azure 用作数据中心的扩展，并继续与应用程序进行通信。
-- **优化**：当系统移动到 Azure 中时，请确保大小合适。 如果环境显示向某些虚拟机分配了过多的资源，请将 VM 类型更改为具有更合适的 CPU、内存和本地存储组合的类型。
+- 分析：标识和清点应用程序、工作负载、网络和安全性等本地资源。 在此阶段结束时，你已完成现有系统的记录。
+- 迁移：将每个子系统从本地移动到 Azure。 在此阶段中，你会将 Azure 用作数据中心的扩展，并继续与应用程序进行通信。
+- 优化：当系统移动到 Azure 中时，请确保大小合适。 如果环境显示向某些虚拟机分配了过多的资源，请将 VM 类型更改为具有更合适的 CPU、内存和本地存储组合的类型。
 
 ### <a name="analyze"></a>分析
 
@@ -94,13 +94,13 @@ Azure 也提供了用来优化环境的工具。 [Azure 顾问](/azure/advisor/a
 
 容器提供了一种绑定应用程序的方法。 由于容器虚拟化操作系统所采用的方式，因此可以将多个容器打包到一个 VM。 可以将应用程序移动到容器（无代码更改或少量代码更改）；可能需要进行配置更改。 这项工作也会导致编写可将应用程序捆绑到容器中的脚本。 开发团队将花费其重构时间来编写和测试这些脚本。 Azure 支持通过 [Azure Kubernetes 服务](/azure/aks/?WT.mc_id=retailecomm-docs-scseely) (AKS) 以及可用于管理容器映像的相关 [Azure 容器注册表](https://azure.microsoft.com/services/container-registry/?WT.mc_id=retailecomm-docs-scseely)进行容器化。
 
-对于应用服务，可以充分利用各种 Azure 服务。 例如，现有基础结构可能会通过将消息放入队列（如 [RabbitMQ](https://www.rabbitmq.com/)）来处理客户订单。 （例如，一条消息是对客户进行收费，第二条消息是配送订单。）重新托管时，将 RabbitMQ 放在单独的 VM 中。 在重构期间，将[服务总线](/azure/service-bus-messaging/service-bus-queues-topics-subscriptions?WT.mc_id=retailecomm-docs-scseely)队列或主题添加到解决方案中，重写 RabbitMQ 代码，并停止使用提供队列功能的 VM。 此更改会将一组 VM 替换为始终可用的消息队列服务以降低成本。 可在 Azure 门户中找到其他应用服务。
+对于应用服务，可以充分利用各种 Azure 服务。 例如，现有基础结构可能会通过将消息放入队列（如 [RabbitMQ](https://www.rabbitmq.com/)）来处理客户订单。 （例如，一条消息是向客户收取费用，另一种是发运订单。）当重新承载时，将 RabbitMQ 放在单独的 VM 中。 在重构期间，将[服务总线](/azure/service-bus-messaging/service-bus-queues-topics-subscriptions?WT.mc_id=retailecomm-docs-scseely)队列或主题添加到解决方案中，重写 RabbitMQ 代码，并停止使用提供队列功能的 VM。 此更改会将一组 VM 替换为始终可用的消息队列服务以降低成本。 可在 Azure 门户中找到其他应用服务。
 
 对于数据库，可以将你的数据库从 VM 移动到服务。 Azure 支持使用 [Azure SQL 数据库](/azure/sql-database/sql-database-cloud-migrate?WT.mc_id=retailecomm-docs-scseely)和 [Azure SQL 数据库托管实例](/azure/sql-database/sql-database-managed-instance?WT.mc_id=retailecomm-docs-scseely)的 SQL Server 工作负载。 [数据迁移服务](https://azure.microsoft.com/services/database-migration/?WT.mc_id=retailecomm-docs-scseely)会评估你的数据库，告知你需要在迁移之前执行的工作，并将数据库从 VM 移动到服务。 Azure 支持 [MySQL](https://azure.microsoft.com/services/mysql/?WT.mc_id=retailecomm-docs-scseely)、[PostgreSQL](https://azure.microsoft.com/services/postgresql/?WT.mc_id=retailecomm-docs-scseely) 以及[其他数据库](https://azure.microsoft.com/services/#databases?WT.mc_id=retailecomm-docs-scseely)引擎服务。
 
-## <a name="rebuild"></a>重新生成
+## <a name="rebuild"></a>“重新生成”
 
-到目前为止，我们已尝试最大限度地减少对电子商务系统的更改 — 我们仅保留工作系统。 接下来讨论如何真正充分利用云。 此阶段是指通过积极采用 PaaS 甚至 SaaS 服务和体系结构来修改现有应用程序。 该过程包括添加新功能或为云重构应用程序的重大修改。  托管 API  是充分利用云系统的新概念。 我们可以通过创建用于在服务之间通信的 API 来使系统更易于更新。  第二个好处是能够深入了解我们拥有的数据。 为此，需移动到微服务和 API  体系结构并使用机器学习和其他工具来分析数据。
+到目前为止，我们已尝试最大限度地减少对电子商务系统的更改 — 我们仅保留工作系统。 接下来讨论如何真正充分利用云。 此阶段是指通过积极采用 PaaS 甚至 SaaS 服务和体系结构来修改现有应用程序。 该过程包括添加新功能或为云重构应用程序的重大修改。  托管 API 是充分利用云系统的新概念。 我们可以通过创建用于在服务之间通信的 API 来使系统更易于更新。  第二个好处是能够深入了解我们拥有的数据。 为此，需移动到微服务和 API 体系结构并使用机器学习和其他工具来分析数据。
 
 ### <a name="microservices--apis"></a>微服务 + API
 
@@ -120,7 +120,7 @@ Azure 也提供了用来优化环境的工具。 [Azure 顾问](/azure/advisor/a
 
 许多开发团队试图同时执行重新托管和重构操作来解决技术债务并更好地利用容量。 在跳转到后续步骤之前进行重新托管有好处。  部署到新环境的任何问题都会更易于诊断和修复。 这反过来会为开发和支持团队提供时间来熟悉作为新环境的 Azure。 开始重构和重新生成系统时，你是在稳定且正常运行的应用程序上进行构建。 这样可以进行更小且有针对性的更改并进行更频繁的更新。
 
-我们已发布有关迁移到云的更简要白皮书：[云迁移概要](https://azure.microsoft.com/resources/cloud-migration-essentials-e-book/?_lrsc=9618a836-9f81-4087-901f-51058783c3a8&WT.mc_id=retailecomm-docs-scseely)。 这在规划迁移时非常适合通读。
+我们已发布有关迁移到云的更常规白皮书：[云迁移概要](https://azure.microsoft.com/resources/cloud-migration-essentials-e-book/?_lrsc=9618a836-9f81-4087-901f-51058783c3a8&WT.mc_id=retailecomm-docs-scseely)。 这在规划迁移时非常适合通读。
 
 ## <a name="technologies-presented"></a>所提供的技术
 

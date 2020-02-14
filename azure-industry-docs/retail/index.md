@@ -7,11 +7,11 @@ ms.topic: article
 ms.service: industry
 description: Azure Industry Experiences 中的零售用例
 ms.openlocfilehash: f78ca39077fb8f754d52349f3e5b7cefb8ffde84
-ms.sourcegitcommit: b8f9ccc4e4453d6912b05cdd6cf04276e13d7244
-ms.translationtype: HT
+ms.sourcegitcommit: 3b175d73a82160c4cacec1ce00c6d804a93c765d
+ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74263503"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77054093"
 ---
 # <a name="retail-industry"></a>零售业
 

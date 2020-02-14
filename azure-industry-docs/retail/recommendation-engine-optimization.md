@@ -7,11 +7,11 @@ ms.topic: article
 ms.service: industry
 description: 如何重用和优化用 R 语言编写的推荐应用程序。 依赖 Azure VM 上的 Machine Learning Server。
 ms.openlocfilehash: c5c35de681abc52641952f8bc9e95095b9d99d97
-ms.sourcegitcommit: b8f9ccc4e4453d6912b05cdd6cf04276e13d7244
-ms.translationtype: HT
+ms.sourcegitcommit: 3b175d73a82160c4cacec1ce00c6d804a93c765d
+ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74263489"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77054212"
 ---
 # <a name="optimize-and-reuse-an-existing-recommendation-system"></a>优化和重用现有推荐系统  
 
@@ -19,7 +19,7 @@ ms.locfileid: "74263489"
 
 ## <a name="recommendation-systems-and-r"></a>推荐系统和 R
 
-对于零售商，了解消费者偏好和购买历史记录可提升自己的竞争优势。 多年来，零售商一直在结合使用此类数据和机器学习，以确定与消费者相关的产品，并提供个性化购物体验。 这种方法称为“产品推荐”  ，可为零售商带来重要收入源。 推荐系统有助于回答如下问题：*此人将在下一次观看哪部电影？这位顾客可能会对其他什么服务感兴趣？这位顾客希望去哪儿度假？*
+对于零售商，了解消费者偏好和购买历史记录可提升自己的竞争优势。 多年来，零售商一直在结合使用此类数据和机器学习，以确定与消费者相关的产品，并提供个性化购物体验。 这种方法称为“产品推荐”，可为零售商带来重要收入源。 推荐系统有助于回答如下问题：*此人将在下一次观看哪部电影？这位顾客可能会对其他什么服务感兴趣？这位顾客希望去哪儿度假？*
 新客户想要了解：*使用者（订阅者）是否将续订其合同？* 这位客户的现有推荐系统会预测订阅者续订合同的概率。 在预测生成后，系统会应用额外处理，以将响应分类为“是”、“否”或“可能”。 然后，模型响应被集成到呼叫中心业务流程中。 此流程启用了服务代理，以向消费者提供个性化推荐。  
 这位客户的很多早期分析产品都已内置到[编程语言 R](https://docs.microsoft.com/machine-learning-server/rebranding-microsoft-r-server) 中，包括作为推荐系统核心的机器学习模型。 随着订阅者群扩增，数据要求和计算要求也越来越高， 以至于推荐工作负载现在非常缓慢且处理效率低下。 现在，这位客户正逐渐将 Python 纳入自己的分析产品策略。 但近期内必须要保留 R 投资，并找到更高效的开发和部署流程。 难题是如何使用 Azure 功能优化现有方法。 首先，我们执行了一项任务，以提供和验证推荐工作负载的概念证明技术堆栈。 下文总结了可用于类似项目的常规方法。  
 
@@ -62,7 +62,7 @@ MLS 部署在 Azure 中的两个 Linux 虚拟机上：一个配置为用于“�
 
 ### <a name="rstudio-server"></a>RStudio Server
 
-[RStudio Server](https://www.rstudio.com/products/rstudio/#Server)  是 Linux 应用程序，用于为远程客户端或笔记本电脑客户端提供基于浏览器的接口。 它在端口 8787 上运行，并且在 Azure VM 上创建有网络安全规则后可用于远程连接。 对于更青睐 RStudio IDE 的分析员和数据科学家，可使用它高效提供对包含大量计算和内存容量的虚拟机的访问权限。 可下载源版本和商业版。
+[RStudio Server](https://www.rstudio.com/products/rstudio/#Server) 是 Linux 应用程序，用于为远程客户端或笔记本电脑客户端提供基于浏览器的接口。 它在端口 8787 上运行，并且在 Azure VM 上创建有网络安全规则后可用于远程连接。 对于更青睐 RStudio IDE 的分析员和数据科学家，可使用它高效提供对包含大量计算和内存容量的虚拟机的访问权限。 可下载源版本和商业版。
 
 ### <a name="azure-sql-database"></a>Azure SQL 数据库
 
@@ -84,17 +84,17 @@ Azure 中有多个托管云数据库选项。 之所以选择 [Azure SQL 数据�
 1. 按照[此处](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal)的步骤操作，通过 Azure 门户创建了数据库。
 2. 下载并使用 [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017)，以从 VM 连接到数据库。
 3. 选择了 [SQL 导入/导出向导](https://docs.microsoft.com/sql/integration-services/import-export-data/import-and-export-data-with-the-sql-server-import-and-export-wizard?view=sql-server-2017)（若有时间约束，可使用更多高性能数据导入选项）。 请注意，导入/导出向导会将数据类型从数据源映射到目标位置；在我们的方案中，所有数据元素都映射到可接受的 varchar(max) 数据类型。 如果你的方案需要其他映射，可以在向导中修改数据类型（[参考文章](https://docs.microsoft.com/sql/integration-services/import-export-data/data-type-mapping-in-the-sql-server-import-and-export-wizard?view=sql-server-2017)）。  
-4. 由于提交到数据库的大多数查询都按字段 subscriber_id  进行筛选，因此我们为此字段创建了索引。
+4. 由于提交到数据库的大多数查询都按字段 subscriber_id 进行筛选，因此我们为此字段创建了索引。
 
 ### <a name="web-application"></a>Web 应用程序
 
 Web 应用程序负责执行三个功能：
 
-- 身份验证：Web 用户通过 React  前端对 Azure Active Directory  进行身份验证。
+- 身份验证：Web 用户通过 React 前端对 Azure Active Directory 进行身份验证。
 - 模型评分：接受用户提供的有关特定订阅者的输入数据，使用 REST API 将订阅者数据提交到 Web 服务，这会返回预测响应。  
 - 模型重新定型：接受订阅者标识符作为输入，并对开发服务器调用 R 脚本，以重新定型相应订阅者的模型。
 
-使用 Azure Active Directory  实现单一登录 (SSO) 比预期更具挑战性。 这是由于单页应用程序 (SPA) 框架所致。 一个 Azure Active Directory 库是取得成功的关键，就是 [react adal](https://github.com/salvoravida/react-adal)。 下面的参考文章提供了有关实现身份验证的实用指南：
+使用 Azure Active Directory 实现单一登录 (SSO) 比预期更具挑战性。 这是由于单页应用程序 (SPA) 框架所致。 一个 Azure Active Directory 库是取得成功的关键，就是 [react adal](https://github.com/salvoravida/react-adal)。 下面的参考文章提供了有关实现身份验证的实用指南：
 
 - [Azure AD 的身份验证方案](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-scenarios)
 - [单页应用程序](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-scenarios#single-page-application-spa)
@@ -103,7 +103,7 @@ Web 应用程序负责执行三个功能：
 
 开发 VM 托管了模型开发、定型和重新定型以及分类模型部署。 Azure VM (DS13 V2) 预配有 Linux/Ubuntu 16.10，并将以下内容安装到基础 VM 上：
 
-- Machine Learning Server 9.3.0（有关说明，请单击[此处](https://docs.microsoft.com/machine-learning-server/install/machine-learning-server-install)）。 请务必完成创建验证步骤，以确认是否安装。 由于这是开发 VM，我们忽略了“启用 Web 服务部署和远程连接”  部分。
+- Machine Learning Server 9.3.0（有关说明，请单击[此处](https://docs.microsoft.com/machine-learning-server/install/machine-learning-server-install)）。 请务必完成创建验证步骤，以确认是否安装。 由于这是开发 VM，我们忽略了“启用 Web 服务部署和远程连接”部分。
 - [RStudio Server](https://www.rstudio.com/products/rstudio/download-server/)（开放源代码版本）。 请注意，不要重新安装 R/r-base（之前已与 MLS 9.3.0 一起安装）。  
 - [将网络安全组添加到](https://docs.microsoft.com/azure/virtual-machines/windows/nsg-quickstart-portal) VM，以便能够通过端口 8787 为 RStudio Server 实现入站连接。  
 - ODBC 驱动程序，用于处理开发 VM 和 Azure SQL 数据库之间的通信。 VM 上安装了以下 odbc 驱动程序：  
@@ -114,7 +114,7 @@ Web 应用程序负责执行三个功能：
 
 ### <a name="operations-vm-mls-930"></a>运营 VM (MLS 9.3.0)
 
-运营 VM 托管了模型 Web 服务和终结点，存储了 Swagger 文件和分类模型的序列化版本。 配置非常类似于 MLS 开发服务器。 不过，它配置为用于运营化。也就是说，为 REST 终结点提供服务所需的 Web 服务已安装。 若要部署运营 VM，可使用 ARM 模板进行快速部署。 请参阅：[使用 ARM 模板配置 Microsoft Machine Learning Server 9.3 以使分析可操作化](https://blogs.msdn.microsoft.com/mlserver/2018/02/27/configuring-microsoft-machine-learning-server-9-3-to-operationalize-analytics-using-arm-templates/)。 我们的项目使用此 [ARM 模板](https://github.com/Microsoft/microsoft-r/tree/master/mlserver-arm-templates/one-box-configuration/linux)部署了一体化配置  。  
+运营 VM 托管了模型 Web 服务和终结点，存储了 Swagger 文件和分类模型的序列化版本。 配置非常类似于 MLS 开发服务器。 不过，它配置为用于运营化。也就是说，为 REST 终结点提供服务所需的 Web 服务已安装。 若要部署运营 VM，可使用 ARM 模板进行快速部署。 请参阅：[使用 ARM 模板配置 Microsoft Machine Learning Server 9.3 以使分析可操作化](https://blogs.msdn.microsoft.com/mlserver/2018/02/27/configuring-microsoft-machine-learning-server-9-3-to-operationalize-analytics-using-arm-templates/)。 我们的项目使用此 [ARM 模板](https://github.com/Microsoft/microsoft-r/tree/master/mlserver-arm-templates/one-box-configuration/linux)部署了一体化配置。  
 这样一来，支持模型管道的服务器组件便能正常运行了。
 
 ## <a name="model-implementation"></a>模型实现
@@ -123,16 +123,16 @@ Web 应用程序负责执行三个功能：
 
 ### <a name="data-import"></a>数据导入
 
-模型开发所需的全部数据都驻留在 Azure SQL 数据库  中。 对于模型定型和重新定型，数据导入分两个阶段完成：
+模型开发所需的全部数据都驻留在 Azure SQL 数据库中。 对于模型定型和重新定型，数据导入分两个阶段完成：
 
-1. 将查询提交到数据库，以检索特定 subscriber_id  的数据和返回的结果集。 为了对数据库进行查询访问，我们考虑了以下两种方法：
+1. 将查询提交到数据库，以检索特定 subscriber_id 的数据和返回的结果集。 为了对数据库进行查询访问，我们考虑了以下两种方法：
 
 - 名为 [RxSQLServerData](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/rxsqlserverdata) 的 RevoScaleR 函数
 - R odbc 包
 
 最终决定使用在数据库一级启用了数据筛选的 R odbc 库。 从数据库表中仅筛选出特定订阅者模型所需的行，最大程度地减少了要读入 R 并处理的行数。 这还减少了定型或重新定型每个模型所需的内存、计算和总时间。  
 
-1. 将结果集转换为 R 数据帧，并按分类算法要求，将一些数据类型从 varchars 显式转换为整数或数字。 对于此功能，使用的是 RevoScaleR 函数 [rxImport](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/rximport)。 rxImport  函数与 RevoScaleR 和 MicrosoftML 捆绑在一起，设计为采用多线程。 下面的示例展示了我们是如何使用它的：
+1. 将结果集转换为 R 数据帧，并按分类算法要求，将一些数据类型从 varchars 显式转换为整数或数字。 对于此功能，使用的是 RevoScaleR 函数 [rxImport](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/rximport)。 rxImport 函数与 RevoScaleR 和 MicrosoftML 捆绑在一起，设计为采用多线程。 下面的示例展示了我们是如何使用它的：
 
 ````r
 
@@ -156,7 +156,7 @@ rxGetInfo (input_data, getVarInfo = TRUE)
 
 ## <a name="algorithm-selection"></a>算法选择
 
-我们评估了三种不同的分类算法实现：rxDForest  、rxFastTrees  和 rxFastForest  。 所有这三种算法都利用了多线程和并行度。 Microsoft ML 将使用多个 CPU 或 GPU（若有）。 模型评估标准包括：
+我们评估了三种不同的分类算法实现：rxDForest、rxFastTrees 和 rxFastForest。 所有这三种算法都利用了多线程和并行度。 Microsoft ML 将使用多个 CPU 或 GPU（若有）。 模型评估标准包括：
 
 - 新模型比原始模型更准确吗？
 - 生产中运行的模型的内存占用情况是多少？ 在不影响准确度的情况下，运营环境是否支持同时执行多个准实时返回预测响应的模型？
@@ -164,13 +164,13 @@ rxGetInfo (input_data, getVarInfo = TRUE)
 
 下表汇总了调查结果：
 
-| 算法 | 说明 | 调查结果 | 说明 |
+| 算法 | 说明 | 调查结果 | 注释 |
 | :--------- | :------------ | :--------- | :--------------- |
 | [rxFastTrees](https://docs.microsoft.com/machine-learning-server/r-reference/microsoftml/rxfasttrees) | 并行实现已提升决策树，以实现 FastRank 的多线程版本。 | 准确且性能速度最快。 | 没有针对非均衡数据的特殊功能。 需要提供预处理数据作为输入 |
 | [rxFastForest](https://docs.microsoft.com/machine-learning-server/r-reference/microsoftml/rxfastforest) | 并行实现随机林，并使用 rxFastTrees 生成决策树的集成学习器。 | 使用预处理数据后比原始模型更准确。 更少占用大量内存，比 rxDForest 更快 |没有针对非均衡数据的特殊功能。 需要提供预处理数据作为输入。 |
 | [rxDForest](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/rxdforest) | 并行实现随机林。 包含在 RevoScaleR 中。 可以仅在函数调用中就处理非均衡数据（删除缺失数据、为数据设置条件和处理样本分层）。 | 比原始模型更快。 与原始模型一样准确或更准确。 使用各种重新采样和综合技术来处理非均衡数据集。 内存占用情况最大。  | 内存占用情况最大是因为，它在函数内包含有条件的数据。   虽然数据处理的效果很好，但不如数据所有者提供的自定义转换效果好。 |
 
-最后，这位客户选择了 rxFastForest  算法，并决定使用 [vtreat](https://cran.r-project.org/web/packages/vtreat/index.html) 库和添加自定义数据预处理步骤，以为代表性不足的订阅者综合生成数据，从而处理非均衡数据。
+最后，这位客户选择了 rxFastForest 算法，并决定使用 [vtreat](https://cran.r-project.org/web/packages/vtreat/index.html) 库和添加自定义数据预处理步骤，以为代表性不足的订阅者综合生成数据，从而处理非均衡数据。
 
 ## <a name="model-deployment--web-services"></a>模型部署和 Web 服务
 
@@ -195,9 +195,9 @@ rxGetInfo (input_data, getVarInfo = TRUE)
 }
  ````
 
-部署后，模型就会进行序列化，并存储在运营服务器上，可通过处于标准  或实时  模式下的 Web 服务进行使用。 每当调用的是处于标准模式下的 Web 服务时，R 和所需的任何库都会随每次调用一起加载和卸载。 相比之下，对于实时  模式，R 和库只加载一次，并可重用于后续 Web 服务调用。 由于 Web 服务调用的大部分开销是加载 R 和库，因此实时模式的模型评分延迟更低，响应时间不到 10ms。 有关标准和实时模式，请参阅[此处](https://docs.microsoft.com/machine-learning-server/operationalize/concept-what-are-web-services)的文档和参考示例。 虽然实时模式适用于单一预测，但也可以传入输入数据帧以用于评分。 下面这篇参考文章中对此进行了介绍：[借助 mrsdeploy 通过批处理来使用异步 Web 服务](https://docs.microsoft.com/machine-learning-server/operationalize/how-to-consume-web-service-asynchronously-batch)。
+部署后，模型就会进行序列化，并存储在运营服务器上，可通过处于标准或实时模式下的 Web 服务进行使用。 每当调用的是处于标准模式下的 Web 服务时，R 和所需的任何库都会随每次调用一起加载和卸载。 相比之下，对于实时模式，R 和库只加载一次，并可重用于后续 Web 服务调用。 由于 Web 服务调用的大部分开销是加载 R 和库，因此实时模式的模型评分延迟更低，响应时间不到 10ms。 有关标准和实时模式，请参阅[此处](https://docs.microsoft.com/machine-learning-server/operationalize/concept-what-are-web-services)的文档和参考示例。 虽然实时模式适用于单一预测，但也可以传入输入数据帧以用于评分。 下面这篇参考文章中对此进行了介绍：[借助 mrsdeploy 通过批处理来使用异步 Web 服务](https://docs.microsoft.com/machine-learning-server/operationalize/how-to-consume-web-service-asynchronously-batch)。
 
-## <a name="conclusion"></a>结束语
+## <a name="conclusion"></a>结论
 
 利用 Microsoft Machine Learning Server 中内置的 MicrosoftML 和 RevoScaleR 库的并行度，我们加速了数百个订阅者的各个分类模型的开发、部署和评分。 模型准确度有所提升，定型和重新定型时间有所缩短，所有这些都只需对现有 R 基准代码进行极少更改。
 复杂的是，实现基础设施以支持模型管道，并对技术组件进行正确端到端配置。 若要开始使用你自己的方法，请参阅下面的一些参考文章：
@@ -207,6 +207,6 @@ rxGetInfo (input_data, getVarInfo = TRUE)
 - [适用于 Machine Learning Server 的 R 示例](https://docs.microsoft.com/machine-learning-server/r/r-samples)
 - [R 函数库参考](https://docs.microsoft.com/machine-learning-server/r-reference/introducing-r-server-r-package-reference)
 
-## <a name="references"></a>参考
+## <a name="references"></a>引用
 
 若对构建零售业务的其他预测解决方案感兴趣，请访问 Azure [AI 库](https://gallery.azure.ai/)的[零售部分](https://gallery.azure.ai/industries/retail)。  

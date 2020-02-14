@@ -7,11 +7,11 @@ ms.topic: article
 ms.service: industry
 description: 有关如何为 Azure 上的制造客户开发预测性维护的解决方案说明。
 ms.openlocfilehash: c32893d534279cda35f7c6a142869d2983eaca67
-ms.sourcegitcommit: 2714a77488c413f01beb169a18acab45663bcfd7
-ms.translationtype: HT
+ms.sourcegitcommit: 3b175d73a82160c4cacec1ce00c6d804a93c765d
+ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74308490"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77053838"
 ---
 # <a name="predictive-maintenance-in-manufacturing-solution-guide"></a>制造解决方案指南中的预测性维护
 
@@ -66,13 +66,13 @@ ms.locfileid: "74308490"
 
 Microsoft 已发布有关如何准备数据和训练机器学习模型的[详细指南](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/cortana-analytics-playbook-predictive-maintenance?WT.mc_id=pdmsolution-docs-ercenk)。 存在三个典型维护问题以及相关的机器学习算法：
 
-- _对于资产，在接下来的 X 小时内发生故障的概率是多少？_ 答：0-100%
-  - **二元分类：** 二元分类是一种机器学习方法，它使用数据将数据项或数据行的类别、类型或类确定为两个类之一的成员。 有多种类型的分类算法，Microsoft 发布了一组可用作[机器学习工作室模块](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/machine-learning-initialize-model-classification?WT.mc_id=pdmsolution-docs-ercenk)的算法。
-- _资产的剩余使用寿命是多少？_ 答：X 小时
-  - **回归：** 回归是一类机器学习算法，用于预测变量的值（在给定一组其他变量的情况下）。 机器学习工作室包括一组作为[模块](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/machine-learning-initialize-model-regression?WT.mc_id=pdmsolution-docs-ercenk)的回归算法。
-    - **长短时记忆 (LSTM)：** [LSTM](https://colah.github.io/posts/2015-08-Understanding-LSTMs/?WT.mc_id=pdmsolution-docs-ercenk) 网络是一种深度神经网络 (DNN)。 DNN 的灵感来自于模拟大脑中个体神经元的行为。 Microsoft 已发布了用于介绍如何使用 LSTM 进行预测性维护的[分步指南](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/scenario-deep-learning-for-predictive-maintenance?WT.mc_id=pdmsolution-docs-ercenk)
-- _哪种资产最急需服务？_ 答：资产 X
-  - **多类分类：** 多类分类是一种机器学习方法，它使用数据将数据项或数据行的类别、类型或类确定为两个以上的类的成员。
+- _对于资产，在接下来的 X 小时内发生故障的概率是多少？_ 回答：0-100%
+  - **二进制分类：** 二进制分类是一种机器学习方法，它使用数据将项目或数据行的类别、类型或类确定为两个类之一的成员。 有多种类型的分类算法，Microsoft 发布了一组可用作[机器学习工作室模块](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/machine-learning-initialize-model-classification?WT.mc_id=pdmsolution-docs-ercenk)的算法。
+- _资产的剩余使用寿命是多少？_ 回答：X 小时
+  - 回归：回归是一类机器学习算法，在给定一组其他变量的情况下预测变量的值。 机器学习工作室包括一组作为[模块](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/machine-learning-initialize-model-regression?WT.mc_id=pdmsolution-docs-ercenk)的回归算法。
+    - **长短期内存（LSTM）：** [LSTM](https://colah.github.io/posts/2015-08-Understanding-LSTMs/?WT.mc_id=pdmsolution-docs-ercenk)网络是一种深度神经网络（DNN）。 DNN 的灵感来自于模拟大脑中个体神经元的行为。 Microsoft 已发布了用于介绍如何使用 LSTM 进行预测性维护的[分步指南](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/scenario-deep-learning-for-predictive-maintenance?WT.mc_id=pdmsolution-docs-ercenk)
+- _哪种资产最急需服务？_ 回答：资产 X
+  - 多类分类：多类分类是一种机器学习方法，它使用数据将项目或数据行的类别、类型或类确定为多于两个类的成员。
 
 同样，引入数据可能意味着利用多个通道，首先批量初始化它，然后继续接收流数据以预测故障，同时将其用于模型的后续生成。
 
@@ -106,7 +106,7 @@ Azure 平台上有各种用于提取、转换和加载 (ETL) 操作的工具和�
 
 决定使用哪种工具取决于操作的复杂性、团队经验以及数据的大小。
 
-除了云服务成本之外，云解决方案的成本公式还包含许多变量，例如额外的工程、管理、数据传输费用等。在评估成本时使用这些变量，然后做出明智决定。 仅服务不构成总成本公式。
+云解决方案的成本公式除了包含云服务成本之外，还包含许多可变因素，例如附加工程、管理、数据传输等。评估成本时使用这些变量，并做出明智的决策。 仅服务不构成总成本公式。
 
 设计用于分析数据和发布模型的过程是详细主题，并且根据所使用的技术而不同。 这些主题超出了本文的范围。 介绍流程的一系列文章以及可用于生成模型的 Azure 服务可用。 Microsoft 还提供了一种用于生成解决方案的系统化方法，使数据科学团队能够在数据生命周期内有效协作。
 
@@ -201,9 +201,9 @@ Azure IoT 解决方案体系结构的详细信息[可联机获取](https://downl
 
 ### <a name="data-security-and-isolation"></a>数据安全性和独立性
 
-提供服务的一方必须确保可识别并妥善保护或推移其客户的机密信息。Microsoft Azure 提供了根据所使用的存储服务加密数据的功能。
+提供服务的参与方必须确保其客户的机密信息被标识并得到适当的保护或被淘汰。Microsoft Azure 提供了根据所使用的存储服务对数据进行加密的功能。
 
-设备生成和提交数据的方式也需要使用已知方法进行保护，例如每设备证书、每设备启用/禁用、TLS 安全、X.509 支持、IP 允许列表/阻止列表以及共享访问策略。 提供服务的一方必须确保可识别并妥善保护或推移客户的机密信息。[Azure Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-encryption?WT.mc_id=pdmsolution-docs-ercenk)、[Azure 存储](https://docs.microsoft.com/azure/storage/common/storage-service-encryption?WT.mc_id=pdmsolution-docs-ercenk)、[Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/database-encryption-at-rest?WT.mc_id=pdmsolution-docs-ercenk) 和 [Azure SQL 数据库](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql?WT.mc_id=pdmsolution-docs-ercenk)是可用于加密静态数据的服务示例。 解决方案提供商还应考虑如何在同一资源（例如数据库）或多个资源内对数据进行分区。 
+设备生成和提交数据的方式也需要使用已知方法进行保护，例如每设备证书、每设备启用/禁用、TLS 安全、X.509 支持、IP 允许列表/阻止列表以及共享访问策略。 提供服务的参与方必须确保已标识并正确保护客户的机密信息，并对其进行了适当的保护或清理。[Azure Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-encryption?WT.mc_id=pdmsolution-docs-ercenk)、 [azure 存储](https://docs.microsoft.com/azure/storage/common/storage-service-encryption?WT.mc_id=pdmsolution-docs-ercenk)、 [Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/database-encryption-at-rest?WT.mc_id=pdmsolution-docs-ercenk)和[azure SQL 数据库](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql?WT.mc_id=pdmsolution-docs-ercenk)都是可用于加密静态数据的服务示例。 解决方案提供商还应考虑如何在同一资源（例如数据库）或多个资源内对数据进行分区。 
 
 ### <a name="geographical-considerations"></a>地理位置注意事项
 
@@ -230,7 +230,7 @@ Azure IoT 解决方案体系结构的详细信息[可联机获取](https://downl
 | 可伸缩性                 | 大多数 Azure 服务都支持垂直和水平缩放选项。 利用 Azure 平台上的资源按需部署功能，并通过自动化服务控制其规模（实例大小和数量）。                                                                                                                                                                   |
 | 可用性和复原能力 | 可以使用许多 Azure 服务根据需要弹性预配计算和存储资源。 所有 Azure 服务都提供不同级别的 SLA，但是解决方案必须通过使用适当的设计原则来考虑和利用 SLA 级别。                                                                                                                    |
 | 管理                  | 可以通过各种方式部署和管理 Azure 资源，例如 ARM 模板、命令行工具、PowerShell cmdlet 以及 Azure 管理 API。 考虑在管理 Azure 资源时生成自动化解决方案，而不是使用带有 UI 的工具。                                                                                                                                |
-| 安全                    | Azure IoT 中心支持 TLS 上的对称和非对称密钥（X509 证书和 TPM）。 数据存储使用标识和访问管理 (IAM) 设置进行保护，它们还支持静态数据加密。 作为常规高级安全清单，请考虑查看授权、身份验证、传输和静态加密以及审核机制。 |
+| 安全性                    | Azure IoT 中心支持 TLS 上的对称和非对称密钥（X509 证书和 TPM）。 数据存储使用标识和访问管理 (IAM) 设置进行保护，它们还支持静态数据加密。 作为常规高级安全清单，请考虑查看授权、身份验证、传输和静态加密以及审核机制。 |
 | 经济高效              | 考虑在需要时预配资源，并在不使用时自动放弃资源。                                                                                                                                                                                                                                                                                                  |
 
 ## <a name="conclusion"></a>结束语
@@ -245,8 +245,8 @@ Azure IoT 解决方案体系结构的详细信息[可联机获取](https://downl
 
 2. [通过已启用 IoT 的预测性维护提高设备可靠性](https://www.microsoft.com/internet-of-things/predictive-maintenance?WT.mc_id=pdmsolution-docs-ercenk)
 
-3. [从物联网捕获价值：如何处理预测性维护项目](https://download.microsoft.com/download/0/7/D/07D394CE-185D-4B96-AC3C-9B61179F7080/Capture_value_from_the_Internet%20of%20Things_with_Predictive_Maintenance.PDF?WT.mc_id=pdmsolution-docs-ercenk)
+3. [获取物联网的价值：如何处理预测性维护项目](https://download.microsoft.com/download/0/7/D/07D394CE-185D-4B96-AC3C-9B61179F7080/Capture_value_from_the_Internet%20of%20Things_with_Predictive_Maintenance.PDF?WT.mc_id=pdmsolution-docs-ercenk)
 
 4. [合作伙伴透视：一线预测性维护](https://blogs.microsoft.com/iot/2017/03/21/partner-perspectives-predictive-maintenance-on-the-frontlines/?WT.mc_id=pdmsolution-docs-ercenk)
 
-5. [从商品化到服务化：转换业务，以便在新的现场服务时代借助 IoT 来竞争](https://blogs.microsoft.com/iot/2016/11/07/from-commodization-to-servitization-transforming-your-business-to-compete-in-the-new-age-of-field-service-with-iot/?WT.mc_id=pdmsolution-docs-ercenk)
+5. [从商品化到服务化：转换业务，以便在新的现场服务时代通过 IoT 进行竞争](https://blogs.microsoft.com/iot/2016/11/07/from-commodization-to-servitization-transforming-your-business-to-compete-in-the-new-age-of-field-service-with-iot/?WT.mc_id=pdmsolution-docs-ercenk)

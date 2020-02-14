@@ -8,11 +8,11 @@ ms.service: industry
 ms.topic: article
 ms.date: 11/28/2019
 ms.openlocfilehash: c08e6bbb1da47084122dae1ed6a9e1cea0b59473
-ms.sourcegitcommit: db3bee67c1467884af223a48a895715afba8e08c
-ms.translationtype: HT
+ms.sourcegitcommit: 3b175d73a82160c4cacec1ce00c6d804a93c765d
+ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2019
-ms.locfileid: "75005306"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77053396"
 ---
 # <a name="extracting-actionable-insights-from-iot-data"></a>从 IoT 数据中提取可操作见解
 
@@ -30,11 +30,11 @@ IoT 分析解决方案旨在将来自一组设备的原始 IoT 数据转换成�
 
 ![工厂到仪表板。](assets/extracting-insights-from-iot/factory-to-dashboard.png)
 
-为了便于说明，我们将使用一个简单的 KPI 计算：机器利用率。 机器利用率  是机器实际生产  部件的时间百分比。 例如，如果一个班次为 8 小时，而机器生产部件的时间为 7 小时，那么该班次的机器利用率是 87.5% (7/8×100)。
+为了便于说明，我们将使用一个简单的 KPI 计算：机器利用率。 机器利用率是机器实际生产部件的时间百分比。 例如，如果一个班次为 8 小时，而机器生产部件的时间为 7 小时，那么该班次的机器利用率是 87.5% (7/8×100)。
 
 ## <a name="approach"></a>方法
 
-IoT 应用程序有三个组件：内容  （或设备），发送用于生成见解  的数据或事件，以便用于生成操作  来帮助改进业务或流程。
+IoT 应用程序有三个组件：内容（或设备），发送用于生成见解的数据或事件，以便用于生成操作来帮助改进业务或流程。
 
 制造工厂中的设备（内容）在运行时发送各种类型的数据。 例如，铣床发送进给率和温度数据；这用于评估机器是否正在运行（即见解），进而用来优化工厂（即操作）。 我们将通过这些步骤来提取数据，在仪表板中对其进行可视化，提取新见解，并采取进一步操作。
 ![内容到见解再到操作。](assets/extracting-insights-from-iot/things-insights-actions.png)
@@ -98,7 +98,7 @@ IoT 数据是时间序列数据：来自“内容”的值在一段时间内可�
 ## <a name="ingesting-the-data-stream"></a>引入数据流
 
 为了将数据作为一个流进行分析，我们可以基于时间窗口对数据进行查询，以识别模式和关系。 Azure 平台上有各种各样的服务，可以高吞吐量地引入数据。
-以下服务的选择取决于项目需要，例如设备管理、协议支持、可伸缩性、团队对编程模型的偏好等。例如，团队可能因为他们的经验而倾向于使用 Kafka，或者需要一个 Kafka 代理来解决这个问题。 或者，对于另一种情况，项目可能需要数据引入系统来利用 [IoT 中心设备预配服务的 TPM 密钥证明](/azure/iot-dps/?WT.mc_id=iotinsightssoln-docs-ercenk)，以确保设备可以访问引入点。
+在以下服务之间进行选择取决于项目的需求，例如设备管理、协议支持、可伸缩性、团队编程模型的首选项等。例如，团队可能有权使用 Kafka，因为他们的经验，或者需要具有解决方案的 Kafka broker。 或者，对于另一种情况，项目可能需要数据引入系统来利用 [IoT 中心设备预配服务的 TPM 密钥证明](/azure/iot-dps/?WT.mc_id=iotinsightssoln-docs-ercenk)，以确保设备可以访问引入点。
 
 - [Azure IoT 中心](/azure/iot-hub/?WT.mc_id=iotinsightssoln-docs-ercenk)是 IoT 应用程序和设备之间的双向通信中心。 它是一项可扩展服务，通过提供安全通信、消息路由、与其他 Azure 服务的集成以及控制和配置设备的管理功能，来支持功能齐全的 IoT 解决方案。
 
@@ -216,7 +216,7 @@ Azure SQL 数据仓库提供了在某些场景中有用的许多附加功能。 
   - [在 Azure Functions 上使用各种绑定](/azure/azure-functions/functions-triggers-bindings?WT.mc_id=iotinsightssoln-docs-ercenk)
 
 - 热路径
-  - 端到端教程演示了事件中心、Azure 流分析和 Power BI 的使用。 有关分步说明，请参阅[教程：教程：将发送到 Azure 事件中心的实时事件中的数据异常可视化](/azure/event-hubs/event-hubs-tutorial-visualize-anomalies?WT.mc_id=iotinsightssoln-docs-ercenk)以及[创建一个流分析工作来分析电话呼叫数据](/azure/stream-analytics/stream-analytics-manage-job?WT.mc_id=iotinsightssoln-docs-ercenk)，并在 Power BI 仪表板中将结果可视化。
+  - 端到端教程演示了事件中心、Azure 流分析和 Power BI 的使用。 请参阅发送到 Azure 事件中心的实时事件中的[教程：可视化数据异常](/azure/event-hubs/event-hubs-tutorial-visualize-anomalies?WT.mc_id=iotinsightssoln-docs-ercenk)以及[创建一个流分析工作来分析电话呼叫数据](/azure/stream-analytics/stream-analytics-manage-job?WT.mc_id=iotinsightssoln-docs-ercenk)，并在 Power BI 仪表板中可视化结果。
   -[在 .NET 中使用 Azure Cosmos DB](/azure/cosmos-db/sql-api-get-started?WT.mc_id=iotinsightssoln-docs-ercenk)
 - 冷路径
   - 在 Azure 数据工厂中[使用 Spark 活动转换云中的数据](/azure/data-factory/tutorial-transform-data-spark-portal?WT.mc_id=iotinsightssoln-docs-ercenk)
@@ -229,45 +229,45 @@ Azure SQL 数据仓库提供了在某些场景中有用的许多附加功能。 
 
 ## <a name="appendix-pillars-of-software-quality-posq"></a>附录：软件质量的构成要素 (PoSQ)
 
-一个成功的云应用程序应基于[软件质量的五大构成要素](/azure/architecture/guide/pillars?WT.mc_id=iotinsightssoln-docs-ercenk)而构建：可伸缩性、可用性、复原能力、管理和安全性。 在本节中，我们将根据需要简要介绍每个组件的上述构成要素。 我们不会对可用性、复原能力、管理和 DevOps 进行说明，因为它们主要在实现级别上讨论，而我们想要提到的是，Azure 平台提供了通过 API、工具、诊断和日志记录来实现这些功能的广泛方法。 除了上面提到的构成要素，还将涉及到成本效益。
+一个成功的云应用程序的构建应基于这些[软件质量的构成要素](/azure/architecture/guide/pillars?WT.mc_id=iotinsightssoln-docs-ercenk)：可伸缩性、可用性、复原能力、管理和安全性。 在本节中，我们将根据需要简要介绍每个组件的上述构成要素。 我们不会对可用性、复原能力、管理和 DevOps 进行说明，因为它们主要在实现级别上讨论，而我们想要提到的是，Azure 平台提供了通过 API、工具、诊断和日志记录来实现这些功能的广泛方法。 除了上面提到的构成要素，还将涉及到成本效益。
 
 让我们快速查看这些构成要素：
 
-- 可伸缩性  是指系统处理增加的负载的能力。 应用程序可通过两种主要方式进行扩展。 垂直扩展（纵向扩展）指增加资源的容量，例如通过使用更大的 VM。 水平扩展（横向扩展）指添加资源的新实例，比如 VM 或数据库副本。 可伸缩性构成要素还包括性能和处理负载的能力。
-- 可用性  指系统正常工作时间所占的比例。 通常通过运行时间百分比衡量。 应用程序错误、基础结构问题和系统负载都会降低可用性。 Microsoft Azure 服务的服务级别协议已发布并在[服务级别协议](https://azure.microsoft.com/support/legal/sla/?WT.mc_id=iotinsightssoln-docs-ercenk)中提供。 可用性是系统级别上唯一有意义的指标。 单独的组件有助于系统的整体可用性。
-- 复原能力  是指系统从故障中恢复并继续正常运行的能力。 复原能力的目标是在故障发生后将应用程序恢复到可完全正常运行的状态。 复原能力与可用性密切相关。
+- 可伸缩性是指系统处理增加的负载的能力。 应用程序可通过两种主要方式进行扩展。 垂直扩展（纵向扩展）指增加资源的容量，例如通过使用更大的 VM。 水平扩展（横向扩展）指添加资源的新实例，比如 VM 或数据库副本。 可伸缩性构成要素还包括性能和处理负载的能力。
+- 可用性指系统正常工作时间所占的比例。 通常通过运行时间百分比衡量。 应用程序错误、基础结构问题和系统负载都会降低可用性。 Microsoft Azure 服务的服务级别协议已发布并在[服务级别协议](https://azure.microsoft.com/support/legal/sla/?WT.mc_id=iotinsightssoln-docs-ercenk)中提供。 可用性是系统级别上唯一有意义的指标。 单独的组件有助于系统的整体可用性。
+- 复原能力是指系统从故障中恢复并继续正常运行的能力。 复原能力的目标是在故障发生后将应用程序恢复到可完全正常运行的状态。 复原能力与可用性密切相关。
 - **管理和 DevOps**。 此构成要素涵盖让应用程序在生产环境中持续运行的操作过程。 部署必须可靠且可预测。 它们应实现自动化，以减少人为失误的可能性。 它们应当是一个快速、例行的过程，这样就不会减缓新功能或 bug 修复的发布速度。 如果更新出现问题，你必须能够快速回滚或前滚，这一点也同样重要。
-- 安全性  应该是从设计和实施到部署和操作的整个解决方案生命周期的主要关注点。 标识管理、保护基础结构、应用程序安全性、授权、数据主权和加密、审核是需要解决的所有广泛领域。
+- 安全性应该是从设计和实施到部署和操作的整个解决方案生命周期的主要关注点。 标识管理、保护基础结构、应用程序安全性、授权、数据主权和加密、审核是需要解决的所有广泛领域。
 
 ## <a name="posq-converting-the-data-to-a-stream"></a>PoSQ：将数据转换为流
 
-**可伸缩性**：我们可以从两个角度来考虑可伸缩性。 首先，从组件的角度来看，其次，从提供源数据的系统的角度来看。
+可伸缩性：我们可以从两个角度来考虑可伸缩性。 首先，从组件的角度来看，其次，从提供源数据的系统的角度来看。
 
 每个 Azure 服务都提供了垂直和水平缩放的选项。 强烈建议在设计解决方案时考虑可伸缩性需求。
 
 对于提供源数据的系统，我们需要小心，不要让系统不堪重负，并且不要通过频繁地查询系统而导致系统遭受拒绝服务 (DoS) 攻击。 如果正在轮询系统，应记住，调整轮询频率有两个影响：数据粒度（查询频率越高，就越接近实时）以及在远程系统上创建的负载。
 
-**安全性**：如果通过对称或非对称密钥来访问远程系统，建议将机密保留在 [Azure Key Vault](/azure/key-vault/?WT.mc_id=iotinsightssoln-docs-ercenk) 中。
+安全性：如果通过对称或非对称密钥来访问远程系统，建议将机密保留在 [Azure Key Vault](/azure/key-vault/?WT.mc_id=iotinsightssoln-docs-ercenk) 中。
 
 ## <a name="posq-warm-path"></a>PoSQ：暖路径
 
-**可伸缩性**：如果 Azure 事件中心在引入子系统中使用，则主要可伸缩性机制是[吞吐量单位](/azure/event-hubs/event-hubs-features#throughput-units?WT.mc_id=iotinsightssoln-docs-ercenk)。 事件中心以静态方式提供设置吞吐量单位的功能，或者通过[自动膨胀功能](/azure/event-hubs/event-hubs-auto-inflate?WT.mc_id=iotinsightssoln-docs-ercenk)进行设置。
+可伸缩性：如果 Azure 事件中心在引入子系统中使用，则主要可伸缩性机制是[吞吐量单位](/azure/event-hubs/event-hubs-features#throughput-units?WT.mc_id=iotinsightssoln-docs-ercenk)。 事件中心以静态方式提供设置吞吐量单位的功能，或者通过[自动膨胀功能](/azure/event-hubs/event-hubs-auto-inflate?WT.mc_id=iotinsightssoln-docs-ercenk)进行设置。
 
 流分析中的[流单元](/azure/stream-analytics/stream-analytics-streaming-unit-consumption?WT.mc_id=iotinsightssoln-docs-ercenk) (SU) 表示分配用于执行作业的计算资源。 SU 的数量越多，为作业分配的 CPU 和 内存资源就越多。 此容量使你能够专注于查询逻辑，并且无需管理及时运行流分析作业所需的硬件。 除了 SU 之外，通过[正确地并行化查询](/azure/stream-analytics/stream-analytics-scale-jobs?WT.mc_id=iotinsightssoln-docs-ercenk)来高效地使用它们至关重要。
 
 Azure Cosmos DB 实现需预配正确的吞吐量参数和适当的分区设计。 预配吞吐量可以在容器或数据库级别进行，并以[请求单位](/azure/cosmos-db/request-units?WT.mc_id=iotinsightssoln-docs-ercenk) (RU) 表示。 Cosmos DB 提供了用于估算 RU 的工具。 除了预配吞吐量外，[有效地对数据库分区](/azure/cosmos-db/partition-data?WT.mc_id=iotinsightssoln-docs-ercenk)也是关键。
 
-**安全性**：客户端对 Azure 事件中心的访问是通过用于客户端身份验证的共享访问签名 (SAS) 令牌与事件发布者的组合实现的。 后端应用程序的安全性遵循与服务总线主题相同的概念。 有关事件中心安全模型的详细描述，请参阅[事件中心身份验证和安全模型概述](/azure/event-hubs/event-hubs-authentication-and-security-model-overview?WT.mc_id=iotinsightssoln-docs-ercenk)。
+安全性：客户端可通过结合使用共享访问签名 (SAS) 令牌与客户端身份验证的事件发布者来访问 Azure 事件中心。 后端应用程序的安全性遵循与服务总线主题相同的概念。 有关事件中心安全模型的详细描述，请参阅[事件中心身份验证和安全模型概述](/azure/event-hubs/event-hubs-authentication-and-security-model-overview?WT.mc_id=iotinsightssoln-docs-ercenk)。
 
 确保 Cosmos DB 数据库的安全提供了对数据的受控访问权限和静止加密。 有关详细信息，请参阅 [Azure Cosmos DB 数据库安全性](/azure/cosmos-db/database-security?WT.mc_id=iotinsightssoln-docs-ercenk)。
 
-**成本效益**：事件中心的定价取决于 SKU（标准或高级）、接收的数百万事件，以及吞吐量单位。 通过查看传入消息指示的数据引入速率，可以实现最佳组合。
+成本效益：事件中心的定价取决于 SKU（标准或高级）、接收的数百万事件，以及吞吐量单位。 通过查看传入消息指示的数据引入速率，可以实现最佳组合。
 
 当使用 Cosmos DB 时，建议通过 RU 利用率观察存储的最优使用。 如上文所述，Cosmos DB 还有一个控制数据保留的功能，建议使用该功能来控制记录在数据库中的保留时间，从而控制数据库大小。
 
 ## <a name="posq-cold-path"></a>PoSQ：冷路径
 
-**可伸缩性**：Azure 时序见解 (TSI) 根据一个名为“容量”的指标进行缩放，该指标是一个乘数，用于计算入口速率、存储容量以及与 SKU 相关的成本。 
+可伸缩性：Azure 时序见解 (TSI) 通过一个名为“容量”的指标进行缩放，该指标是一个乘数，用于计算入口速率、存储容量以及与 SKU 相关的成本。 
 
 Azure 时序见解拥有多个 SKU，这些 SKU 也会对其垂直缩放产生直接影响。 有关缩放的详细信息，请参阅文档[规划 Azure 时序见解环境](/azure/time-series-insights/time-series-insights-environment-planning?WT.mc_id=iotinsightssoln-docs-ercenk)。 与许多其他 Azure 服务一样，TSI 也会受到限制，以避免“邻近干扰”问题。 邻近干扰是共享环境 /azure/sql-database/sql-database-service-tiers-vcore?WT.mc_id=iotinsightssoln-docs-ercenk 中的应用程序，它独占资源并导致其他用户缺乏可用资源。 有关管理限制的信息，请参阅 [TSI 文档](/azure/time-series-insights/time-series-insights-environment-mitigate-latency?WT.mc_id=iotinsightssoln-docs-ercenk)。 
 
@@ -275,10 +275,10 @@ Azure 时序见解拥有多个 SKU，这些 SKU 也会对其垂直缩放产生�
 
 根据购买模型（基于 [DTU](/azure/sql-database/sql-database-service-tiers-dtu?WT.mc_id=iotinsightssoln-docs-ercenk) 和基于 vCore），Azure SQL 数据库有许多选项来垂直和水平管理可伸缩性。 建议进一步研究，使用本主题的 [SQL 数据库文档](/azure/sql-database/sql-database-scale-resources?WT.mc_id=iotinsightssoln-docs-ercenk)找到未来解决方案的最佳选择。
 
-**安全性**：TSI 环境为相互独立的管理访问和数据访问提供[访问策略](/azure/time-series-insights/time-series-insights-data-access?WT.mc_id=iotinsightssoln-docs-ercenk)。 除了已定义的数据源之外，没有其他方法可以直接向 TSI 环境添加数据。 管理访问策略授予的权限与环境配置相关。 数据访问策略授予的权限适用于：发出数据查询、操作环境中的引用数据，以及共享已保存的与环境关联的查询和透视。
+安全性：TSI 环境提供[访问策略](/azure/time-series-insights/time-series-insights-data-access?WT.mc_id=iotinsightssoln-docs-ercenk)，以便管理访问和数据访问相互独立。 除了已定义的数据源之外，没有其他方法可以直接向 TSI 环境添加数据。 管理访问策略授予的权限与环境配置相关。 数据访问策略授予的权限适用于：发出数据查询、操作环境中的引用数据，以及共享已保存的与环境关联的查询和透视。
 
 Azure 数据工厂服务提供了多种方法来保护数据存储凭据，无论是在其托管存储中，还是在 Azure Key Vault 中。 传输中的数据加密取决于数据存储传输（例如 HTTPS 或 TLS）。 静态数据加密也依赖于数据存储。 有关更多详细信息，请参阅 [Azure 数据工厂中数据移动的安全注意事项](/azure/data-factory/data-movement-security-considerations?WT.mc_id=iotinsightssoln-docs-ercenk)。
 
 SQL 数据库提供了一组广泛的针对数据访问的安全功能，用于监视、审核和加密静态数据。 有关详细信息，请参阅 [SQL Server 数据库引擎和 Azure SQL 数据库安全中心](/sql/relational-databases/security/security-center-for-sql-server-database-engine-and-azure-sql-database?WT.mc_id=iotinsightssoln-docs-ercenk)。
 
-**成本效益**：任何分析解决方案的核心都是存储。 分析引擎需要速度、效率、安全性和吞吐量，以便在合理时间内处理大量数据。 通过聚合和汇总数据，以及有效地使用多语言存储来充分利用基础平台的设计机制，是有效管理成本的方式。 由于 Azure 是一个云平台，可以通过一些方法以编程方式停用、重用和调整资源大小。 例如，[创建或更新操作](/rest/api/sql/databases/createorupdate?WT.mc_id=iotinsightssoln-docs-ercenk)提供了一种方法来更改 Azure SQL 数据库的数据库大小。
+成本效益：任何分析解决方案的核心都是存储。 分析引擎需要速度、效率、安全性和吞吐量，以便在合理时间内处理大量数据。 通过聚合和汇总数据，以及有效地使用多语言存储来充分利用基础平台的设计机制，是有效管理成本的方式。 由于 Azure 是一个云平台，可以通过一些方法以编程方式停用、重用和调整资源大小。 例如，[创建或更新操作](/rest/api/sql/databases/createorupdate?WT.mc_id=iotinsightssoln-docs-ercenk)提供了一种方法来更改 Azure SQL 数据库的数据库大小。
